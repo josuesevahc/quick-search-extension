@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: README
+    url: https://github.com/josuesevahc/quick-search-extension#readme
+    about: Start here for features, installation options, privacy notes, and development information.
+  - name: Manual install guide
+    url: https://github.com/josuesevahc/quick-search-extension/blob/main/docs/release/USER_TESTING_INSTALL_GUIDE.md
+    about: Use this guide to install a release build manually before the Chrome Web Store listing is available.
+  - name: Chrome Web Store listing
+    url: https://chromewebstore.google.com/detail/quick-search-extension/placeholder
+    about: Placeholder until the public Chrome Web Store listing URL is available.

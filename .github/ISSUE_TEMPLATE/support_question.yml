@@ -1,0 +1,45 @@
+name: Support question
+description: Ask for help using or installing Quick Search.
+title: "[Support]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for using Quick Search. Please include enough detail for someone to reproduce or understand what you are seeing.
+  - type: textarea
+    id: trying-to-do
+    attributes:
+      label: What are you trying to do?
+      description: Describe the task or setup you need help with.
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the result, error message, or point where you got stuck.
+    validations:
+      required: true
+  - type: input
+    id: extension-version
+    attributes:
+      label: Extension version
+      description: You can find this on the Chrome extensions page.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: browser-os
+    attributes:
+      label: Browser and operating system
+      description: Example: Chrome 126 on Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add screenshots if they would make the question easier to understand.
+    validations:
+      required: false

@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest an improvement or new capability.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Quick Search. Please focus on the user problem first.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem would this feature solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: What would you like Quick Search to do?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives-considered
+    attributes:
+      label: Alternatives considered
+      description: What other approaches or workarounds have you tried or considered?
+    validations:
+      required: false
+  - type: textarea
+    id: privacy-security-impact
+    attributes:
+      label: Privacy or security impact
+      description: Would this feature require new permissions, data storage, network requests, or sensitive user data?
+      placeholder: "No known privacy or security impact."
+    validations:
+      required: true
