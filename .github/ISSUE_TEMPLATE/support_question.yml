@@ -33,7 +33,7 @@ body:
     id: browser-os
     attributes:
       label: Browser and operating system
-      description: Example: Chrome 126 on Windows 11
+      description: "Example: Chrome 126 on Windows 11"
     validations:
       required: true
   - type: textarea
