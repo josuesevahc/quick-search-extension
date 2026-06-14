@@ -68,12 +68,24 @@ release/quick-search-extension-1.0.0.zip
 8. Use ArrowDown and ArrowUp to move through suggestions.
 9. Press Escape and confirm suggestions close.
 10. Type `history` and confirm includes matches appear after prefix matches.
-11. Click a suggestion and confirm it fills/submits using the current-tab search pattern.
-12. Open the options page and click "Clear search history".
-13. Open the popup and confirm the cleared query no longer appears.
-14. Disable local search history suggestions and confirm no suggestions appear while typing.
+11. Click a suggestion and confirm it fills the input without submitting a search.
+12. Type `test` again, highlight a suggestion, and confirm Tab, ArrowRight, and Enter fill the input without submitting a search.
+13. Press Enter again after the suggestion list closes and confirm the search submits.
+14. Open the options page and click "Clear search history".
+15. Open the popup and confirm the cleared query no longer appears.
+16. Disable local search history suggestions and confirm no suggestions appear while typing.
 
 Confirm no network request is made to external autocomplete services while typing.
+
+## Theme Preference
+
+1. Open the options page.
+2. Set Theme to Browser default.
+3. Confirm the popup and options page follow the browser or OS light/dark preference.
+4. Change Theme to Light and confirm the popup and options page use the light theme.
+5. Change Theme to Dark and confirm the popup and options page use the dark theme.
+6. Set Theme back to Browser default if desired.
+7. Confirm no new permission prompt appears.
 
 ## Language Selector
 
@@ -146,6 +158,7 @@ Before upload, verify:
 - There is no `omnibox` key.
 - There are no content scripts.
 - There are no external autocomplete calls while typing.
+- Local suggestions fill the input only and do not submit until the user explicitly submits.
 - There are no source maps in `dist/`.
 - There are no `.env`, `.pem`, `.key`, tests, docs, or `node_modules` files in the ZIP.
 

@@ -10,5 +10,21 @@
   "appDescription": {
     "message": "Quickly switch search providers from a compact popup.",
     "description": "Extension description"
+  },
+  "themeLabel": {
+    "message": "Theme",
+    "description": "Label for the theme preference setting"
+  },
+  "themeSystem": {
+    "message": "Browser default",
+    "description": "Theme option that follows the browser or operating system color scheme"
+  },
+  "themeLight": {
+    "message": "Light",
+    "description": "Light theme option"
+  },
+  "themeDark": {
+    "message": "Dark",
+    "description": "Dark theme option"
   }
 }

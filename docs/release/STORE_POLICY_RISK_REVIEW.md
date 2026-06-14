@@ -41,7 +41,13 @@ Local search history suggestions are generated only from previous searches submi
 
 The history is capped at 50 entries by default. Consecutive duplicate queries are not stored. Empty and whitespace-only queries are not stored. Users can disable local suggestions and clear local search history from the options page.
 
+Accepting a local suggestion only fills the popup input. It does not navigate to a provider, submit a query, change the selected provider, change the temporary per-tab setting, or change the current/new-tab choice. Search execution requires a separate explicit submit action.
+
 Search history is not saved when the extension detects an incognito extension context. This uses `chrome.extension.inIncognitoContext` and does not require an additional permission.
+
+## Theme Preference Risk
+
+Theme preference is stored locally in `chrome.storage.local` as browser default, light, or dark. Browser default follows `prefers-color-scheme`. This does not require additional permissions, host permissions, remote requests, analytics, or telemetry.
 
 ## Search Settings Risk
 

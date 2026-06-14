@@ -48,7 +48,7 @@ Current permissions:
 
 | Permission | Status | Justification |
 | --- | --- | --- |
-| `storage` | Required | Stores user-facing settings in `chrome.storage.local`: enabled providers, custom provider templates, internal default provider, temporary per-tab provider preferences, language preference, and optional local search history suggestions. |
+| `storage` | Required | Stores user-facing settings in `chrome.storage.local`: enabled providers, custom provider templates, internal default provider, temporary per-tab provider preferences, language preference, theme preference, and optional local search history suggestions. |
 
 Current host permissions:
 
@@ -162,6 +162,7 @@ Data stored locally:
 - Internal default provider ID
 - Temporary tab provider override by numeric tab ID
 - Manual language preference
+- Theme preference
 - Optional local search history suggestions when enabled
 
 Data processed during use:
@@ -174,6 +175,7 @@ Data transmission:
 - When the user submits a search, the extension builds the selected provider URL and opens it in the current tab or a new tab.
 - The selected search provider receives the query as part of normal web navigation.
 - Typed text is not sent to Google, Bing, Brave, Perplexity, DuckDuckGo, or external autocomplete providers before submission.
+- Accepting a local suggestion fills the input only and does not submit a search.
 - The extension developer does not receive search terms, search history, or settings.
 - Local search history can be cleared by the user.
 
@@ -252,7 +254,7 @@ Private release is only necessary if the developer wants a closed internal pilot
 
 3. Local search history suggestions
    - Risk: users may not expect saved local query suggestions.
-   - Mitigation: disabled by default, disclosed in settings and privacy docs, stored only locally, capped, and clearable.
+   - Mitigation: disabled by default, disclosed in settings and privacy docs, stored only locally, capped, clearable, and accepted into the input only.
 
 4. Store wording around "default"
    - Risk: reviewers may confuse internal default provider with Chrome default search provider.

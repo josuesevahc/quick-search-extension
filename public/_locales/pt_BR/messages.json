@@ -10,5 +10,21 @@
   "appDescription": {
     "message": "Alterne rapidamente entre buscadores em um popup compacto.",
     "description": "Descricao da extensao"
+  },
+  "themeLabel": {
+    "message": "Tema",
+    "description": "Rotulo da preferencia de tema"
+  },
+  "themeSystem": {
+    "message": "Padrao do navegador",
+    "description": "Opcao de tema que segue o esquema de cores do navegador ou sistema operacional"
+  },
+  "themeLight": {
+    "message": "Claro",
+    "description": "Opcao de tema claro"
+  },
+  "themeDark": {
+    "message": "Escuro",
+    "description": "Opcao de tema escuro"
   }
 }

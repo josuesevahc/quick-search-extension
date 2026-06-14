@@ -15,6 +15,7 @@ Repositório: <https://github.com/josuesevahc/quick-search-extension>
 - Busca na aba atual ou em nova aba.
 - Seleção de buscador padrão interno.
 - Preferência temporária de buscador por aba.
+- Preferência de tema claro, escuro ou padrão do navegador.
 - Ativação e desativação de provedores built-in.
 - Adição, edição e remoção de provedores customizados.
 - Validação de URLs `https://` com `{searchTerms}`.
@@ -79,8 +80,10 @@ npm run zip
 1. Abra o popup do Quick Search.
 2. Digite um termo de busca.
 3. Selecione um provedor.
-4. Pressione Enter para buscar na aba atual, ou use Shift+Enter para abrir uma nova aba.
-5. Use a página de opções para gerenciar provedores e restaurar padrões.
+4. Clique em "Buscar na aba atual" ou "Buscar em nova aba" para enviar, ou pressione Enter quando nenhuma sugestão local estiver destacada.
+5. Use a página de opções para gerenciar provedores, escolher tema claro/escuro/padrão do navegador e restaurar padrões.
+
+Se as sugestões locais do histórico estiverem ativadas, selecionar uma sugestão apenas preenche o campo. A busca só é executada após uma ação explícita de envio.
 
 Provedores customizados devem usar um template de URL `https://` contendo `{searchTerms}`, por exemplo:
 

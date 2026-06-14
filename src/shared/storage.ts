@@ -7,12 +7,14 @@ import {
   normalizeSearchHistory,
 } from '../domain/search-history';
 import { SupportedLocale, SUPPORTED_LOCALES } from './i18n';
+import { ThemePreference, normalizeThemePreference } from './theme';
 
 export type ExtensionSettings = {
   providers: SearchProvider[];
   defaultProviderId: string | null;
   tabProviderOverrides: Record<number, string>;
   language: SupportedLocale | null;
+  themePreference: ThemePreference;
   searchHistoryEnabled: boolean;
   searchHistory: SearchHistoryEntry[];
 };
@@ -25,6 +27,7 @@ export function createDefaultSettings(): ExtensionSettings {
     defaultProviderId: 'google',
     tabProviderOverrides: {},
     language: null,
+    themePreference: 'system',
     searchHistoryEnabled: false,
     searchHistory: [],
   };
@@ -79,6 +82,7 @@ function normalizeSettings(rawSettings: unknown): ExtensionSettings {
     defaultProviderId,
     tabProviderOverrides,
     language,
+    themePreference: normalizeThemePreference(rawSettings.themePreference),
     searchHistoryEnabled,
     searchHistory: normalizeSearchHistory(rawSettings.searchHistory, DEFAULT_SEARCH_HISTORY_LIMIT),
   };
@@ -128,6 +132,12 @@ export async function clearTabProviderOverride(tabId: number): Promise<void> {
 export async function setLanguage(language: SupportedLocale | null): Promise<void> {
   const settings = await getSettings();
   settings.language = language;
+  await saveSettings(settings);
+}
+
+export async function setThemePreference(themePreference: ThemePreference): Promise<void> {
+  const settings = await getSettings();
+  settings.themePreference = normalizeThemePreference(themePreference);
   await saveSettings(settings);
 }
 

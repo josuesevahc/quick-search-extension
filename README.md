@@ -15,6 +15,7 @@ Repository: <https://github.com/josuesevahc/quick-search-extension>
 - Search in the current tab or a new tab.
 - Internal default provider selection.
 - Temporary provider preference per tab.
+- Light, dark, and browser default theme preference.
 - Built-in provider enable/disable controls.
 - Custom provider add, edit, and remove flow.
 - `https://` URL validation with `{searchTerms}`.
@@ -79,8 +80,10 @@ npm run zip
 1. Open the Quick Search popup.
 2. Type a search term.
 3. Select a provider.
-4. Press Enter to search in the current tab, or use Shift+Enter to open a new tab.
-5. Use the options page to manage providers and restore defaults.
+4. Click "Search current tab" or "Search new tab" to submit, or press Enter when no local suggestion is highlighted.
+5. Use the options page to manage providers, choose a light/dark/browser-default theme, and restore defaults.
+
+If local search history suggestions are enabled, selecting a suggestion fills the input only. Search is executed only after an explicit submit action.
 
 Custom providers must use an `https://` URL template containing `{searchTerms}`, for example:
 

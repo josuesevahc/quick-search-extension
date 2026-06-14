@@ -14,9 +14,9 @@ Quick Search provides a compact popup for user-initiated searches across user-se
 
 Justification:
 
-Quick Search uses `chrome.storage.local` to save user-facing settings, including enabled search providers, custom HTTPS provider templates, the extension's internal default provider, temporary per-tab provider preferences, manual language preference, and optional local search history suggestions.
+Quick Search uses `chrome.storage.local` to save user-facing settings, including enabled search providers, custom HTTPS provider templates, the extension's internal default provider, temporary per-tab provider preferences, manual language preference, theme preference, and optional local search history suggestions.
 
-The stored settings remain on the user's device. They are not sent to the developer or to any developer-operated server. Local suggestions are generated only from searches the user has submitted through the extension and can be disabled or cleared by the user.
+The stored settings remain on the user's device. They are not sent to the developer or to any developer-operated server. Local suggestions are generated only from searches the user has submitted through the extension, are accepted into the input only, and can be disabled or cleared by the user.
 
 ## Host Permissions
 
@@ -54,3 +54,5 @@ Quick Search uses the Tabs API only to create or navigate tabs and to track nume
 Quick Search does not change Chrome's default search provider, does not override Chrome search settings, does not override the New Tab Page, does not register an omnibox keyword, and does not intercept browser address-bar searches.
 
 Quick Search does not request the `history` permission and does not intercept or read Chrome browsing history.
+
+No additional permissions are required for theme preference or local suggestion acceptance behavior.

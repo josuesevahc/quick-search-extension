@@ -14,11 +14,11 @@ Search with your chosen provider from a compact popup.
 
 Quick Search is a lightweight search launcher for Chrome.
 
-Open the extension popup, type a search term, choose a provider, and open the result in the current tab or a new tab. You can choose an internal default provider for the extension, temporarily prefer a provider for the current tab, enable or disable built-in providers, and add custom HTTPS provider templates.
+Open the extension popup, type a search term, choose a provider, and open the result in the current tab or a new tab. You can choose an internal default provider for the extension, temporarily prefer a provider for the current tab, choose a light, dark, or browser-default theme, enable or disable built-in providers, and add custom HTTPS provider templates.
 
 Quick Search does not change Chrome's default search engine, does not override the New Tab Page, and does not intercept address-bar searches. Searches happen only when you submit a query from the extension popup.
 
-Optional local search history suggestions can be enabled in settings. Suggestions are generated only from searches submitted through Quick Search and stored on your device. Typed text is not sent to external autocomplete services while you type.
+Optional local search history suggestions can be enabled in settings. Suggestions are generated only from searches submitted through Quick Search and stored on your device. Selecting a local suggestion only fills the input; search is executed only after an explicit submit action. Typed text is not sent to external autocomplete services while you type.
 
 Privacy-focused basics:
 
@@ -42,7 +42,7 @@ Productivity
 
 Primary listing language: English
 
-The extension supports English and Brazilian Portuguese. It follows the browser language by default and includes a manual language selector in settings.
+The extension supports English and Brazilian Portuguese. It follows the browser language by default and includes a manual language selector in settings. Theme preference is stored locally and can follow the browser default, light mode, or dark mode.
 
 ## Single Purpose Field
 
@@ -50,7 +50,7 @@ Quick Search provides a compact popup for user-initiated searches across user-se
 
 ## Permission Justification Field
 
-`storage`: Saves user-facing settings locally, including enabled providers, custom HTTPS provider templates, the extension's internal default provider, temporary provider preferences for tabs, language preference, and optional local search history suggestions.
+`storage`: Saves user-facing settings locally, including enabled providers, custom HTTPS provider templates, the extension's internal default provider, temporary provider preferences for tabs, language preference, theme preference, and optional local search history suggestions.
 
 Quick Search requests no host permissions and does not read website content.
 
@@ -76,7 +76,7 @@ Prepare screenshots that show:
 2. Popup with a provider selected and local suggestions visible only if using non-personal sample terms.
 3. Options page with built-in providers.
 4. Custom provider form showing the HTTPS template requirement.
-5. Language selector and local history suggestions setting.
+5. Language selector, theme selector, and local history suggestions setting.
 
 Avoid showing personal search terms, personal browser tabs, account names, bookmarks, or private URLs.
 

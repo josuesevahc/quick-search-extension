@@ -11,10 +11,13 @@ import { $, create } from '../shared/dom';
 import { getEffectiveProvider } from '../domain/provider-selection';
 import { getProviderInitial } from '../shared/provider-avatar';
 import { findSearchSuggestions, SearchHistoryEntry } from '../domain/search-history';
+import { getSuggestionClickAction, getSuggestionKeyboardAction } from '../domain/suggestion-acceptance';
 import { createTranslator } from '../shared/i18n';
+import { bindThemePreference } from '../shared/theme';
 
 async function init() {
   let settings = await getSettings();
+  bindThemePreference(settings.themePreference);
   const { t } = createTranslator(settings.language);
   const currentTab = await getCurrentTab();
   const currentTabId = typeof currentTab.id === 'number' ? currentTab.id : null;
@@ -133,10 +136,14 @@ async function init() {
         type: 'button',
         textContent: suggestion.query,
         onclick: () => {
-          searchInput.value = suggestion.query;
-          currentSuggestions = [];
+          if (getSuggestionClickAction(!!currentSuggestions[index]) === 'accept') {
+            acceptSuggestion(index);
+          }
+        },
+        onmouseenter: () => {
+          if (highlightedSuggestionIndex === index) return;
+          highlightedSuggestionIndex = index;
           renderSuggestions();
-          void executeSearch(false);
         },
       });
       item.setAttribute('role', 'option');
@@ -161,6 +168,17 @@ async function init() {
     currentSuggestions = [];
     highlightedSuggestionIndex = -1;
     renderSuggestions();
+  }
+
+  function acceptSuggestion(index: number) {
+    const suggestion = currentSuggestions[index];
+    if (!suggestion) return;
+    searchInput.value = suggestion.query;
+    closeSuggestions();
+  }
+
+  function acceptHighlightedSuggestion() {
+    acceptSuggestion(highlightedSuggestionIndex);
   }
 
   function moveSuggestionHighlight(delta: number) {
@@ -197,25 +215,32 @@ async function init() {
   };
 
   searchInput.onkeydown = (e) => {
-    if (e.key === 'ArrowDown') {
+    const action = getSuggestionKeyboardAction(
+      e.key,
+      highlightedSuggestionIndex >= 0 && !!currentSuggestions[highlightedSuggestionIndex],
+      currentSuggestions.length > 0,
+    );
+
+    if (action === 'move-next') {
       e.preventDefault();
       moveSuggestionHighlight(1);
       return;
     }
-    if (e.key === 'ArrowUp') {
+    if (action === 'move-previous') {
       e.preventDefault();
       moveSuggestionHighlight(-1);
       return;
     }
-    if (e.key === 'Escape') {
+    if (action === 'close') {
       closeSuggestions();
       return;
     }
-    if (e.key === 'Enter') {
-      if (highlightedSuggestionIndex >= 0 && currentSuggestions[highlightedSuggestionIndex]) {
-        searchInput.value = currentSuggestions[highlightedSuggestionIndex].query;
-      }
-      closeSuggestions();
+    if (action === 'accept') {
+      e.preventDefault();
+      acceptHighlightedSuggestion();
+      return;
+    }
+    if (action === 'submit') {
       void executeSearch(e.shiftKey);
     }
   };

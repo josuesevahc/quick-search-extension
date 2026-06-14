@@ -1,11 +1,4 @@
-:root {
-  --primary-color: #2563eb;
-  --danger-color: #dc2626;
-  --bg-color: #f9fafb;
-  --card-bg: #ffffff;
-  --text-color: #1f2937;
-  --border-color: #e5e7eb;
-}
+@import '../shared/theme.css';
 
 body {
   margin: 0;
@@ -29,7 +22,7 @@ h1 {
   margin-bottom: 8px;
 }
 p {
-  color: #6b7280;
+  color: var(--muted-text-color);
 }
 
 .section-header {
@@ -40,7 +33,7 @@ p {
 }
 
 .providers-list {
-  background: var(--card-bg);
+  background: var(--surface-color);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
@@ -51,7 +44,7 @@ p {
 }
 
 .preferences-panel {
-  background: var(--card-bg);
+  background: var(--surface-color);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
@@ -69,7 +62,7 @@ p {
 .preference-row small {
   display: block;
   margin-top: 4px;
-  color: #6b7280;
+  color: var(--muted-text-color);
   font-size: 12px;
 }
 
@@ -78,7 +71,8 @@ p {
   padding: 8px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  background: white;
+  background: var(--surface-color);
+  color: var(--text-color);
 }
 
 .preference-actions {
@@ -109,8 +103,8 @@ p {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: #eef2ff;
-  color: #3730a3;
+  background: var(--avatar-bg-color);
+  color: var(--avatar-text-color);
   font-size: 12px;
   font-weight: 700;
 }
@@ -125,7 +119,7 @@ p {
 }
 .provider-row .url {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--muted-text-color);
   overflow-wrap: anywhere;
 }
 
@@ -144,14 +138,15 @@ p {
   cursor: pointer;
 }
 .btn-secondary {
-  background: white;
+  background: var(--surface-color);
+  color: var(--text-color);
   border: 1px solid var(--border-color);
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
 }
 .btn-danger {
-  background: white;
+  background: var(--surface-color);
   border: 1px solid var(--danger-color);
   color: var(--danger-color);
   padding: 8px 16px;
@@ -164,7 +159,7 @@ p {
   border: none;
   cursor: pointer;
   padding: 4px;
-  color: #6b7280;
+  color: var(--muted-text-color);
 }
 .btn-icon:hover {
   color: var(--primary-color);
@@ -176,7 +171,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,7 +183,7 @@ p {
 }
 
 .modal-content {
-  background: white;
+  background: var(--surface-color);
   padding: 30px;
   border-radius: 12px;
   width: 100%;
@@ -209,9 +204,11 @@ p {
   border: 1px solid var(--border-color);
   border-radius: 6px;
   box-sizing: border-box;
+  background: var(--surface-color);
+  color: var(--text-color);
 }
 .form-group small {
-  color: #6b7280;
+  color: var(--muted-text-color);
   font-size: 12px;
 }
 
@@ -234,10 +231,10 @@ p {
 }
 
 .status-toast.success {
-  background-color: #059669;
+  background-color: var(--success-color);
 }
 .status-toast.error {
-  background-color: #dc2626;
+  background-color: var(--danger-color);
 }
 
 @keyframes slideIn {

@@ -15,6 +15,7 @@ Quick Search stores the following settings locally in your browser using `chrome
 - The extension's internal default provider
 - Temporary provider preferences for individual tabs
 - Manual language preference
+- Theme preference
 - Optional local search history suggestions, if enabled
 
 These settings are used only to provide the extension's search switching functionality.
@@ -27,7 +28,7 @@ When you type a search query into Quick Search and submit it, the extension crea
 
 The selected search provider receives your query as part of normal web navigation. For example, if you choose Google, Bing, DuckDuckGo, or another provider, that provider receives the query according to its own privacy policy and terms.
 
-Typed text is not sent to Google, Bing, Brave, Perplexity, DuckDuckGo, or any external autocomplete provider while you type. Search terms are sent to the selected search provider only after you submit a search.
+Typed text is not sent to Google, Bing, Brave, Perplexity, DuckDuckGo, or any external autocomplete provider while you type. Local suggestions, if enabled, are accepted into the input only. Search terms are sent to the selected search provider only after you submit a search.
 
 Quick Search's developer does not receive, collect, transmit, sell, or share your search queries or local search history.
 

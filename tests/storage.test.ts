@@ -7,6 +7,7 @@ import {
   setDefaultProvider,
   setLanguage,
   setSearchHistoryEnabled,
+  setThemePreference,
   setTabProviderOverride,
   recordSearch,
   clearSearchHistory,
@@ -84,6 +85,46 @@ describe('storage settings', () => {
     await setLanguage('pt_BR');
 
     await expect(getSettings()).resolves.toMatchObject({ language: 'pt_BR' });
+  });
+
+  it('defaults theme preference to system', async () => {
+    await resetSettings();
+
+    await expect(getSettings()).resolves.toMatchObject({ themePreference: 'system' });
+  });
+
+  it('accepts every valid theme preference', async () => {
+    await resetSettings();
+
+    await setThemePreference('light');
+    await expect(getSettings()).resolves.toMatchObject({ themePreference: 'light' });
+
+    await setThemePreference('dark');
+    await expect(getSettings()).resolves.toMatchObject({ themePreference: 'dark' });
+
+    await setThemePreference('system');
+    await expect(getSettings()).resolves.toMatchObject({ themePreference: 'system' });
+  });
+
+  it('falls back to system for invalid stored theme values', async () => {
+    const settings = createDefaultSettings() as any;
+    settings.themePreference = 'sepia';
+    await saveSettings(settings);
+
+    await expect(getSettings()).resolves.toMatchObject({ themePreference: 'system' });
+  });
+
+  it('persists a manual theme override without changing other settings', async () => {
+    await resetSettings();
+    await setSearchHistoryEnabled(true);
+    await recordSearch('docs', 'google', 1);
+    await setThemePreference('dark');
+
+    await expect(getSettings()).resolves.toMatchObject({
+      themePreference: 'dark',
+      searchHistoryEnabled: true,
+      searchHistory: [{ query: 'docs', providerId: 'google', searchedAt: 1 }],
+    });
   });
 
   it('does not record search history while disabled', async () => {

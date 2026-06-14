@@ -5,14 +5,17 @@ import {
   saveSettings,
   setLanguage,
   setSearchHistoryEnabled,
+  setThemePreference,
 } from '../shared/storage';
 import { $, create } from '../shared/dom';
 import { SearchProvider, validateProvider } from '../domain/provider';
 import { getProviderInitial } from '../shared/provider-avatar';
 import { createTranslator, MessageKey } from '../shared/i18n';
+import { bindThemePreference, ThemePreference, THEME_PREFERENCES } from '../shared/theme';
 
 async function init() {
   let settings = await getSettings();
+  let unbindThemePreference = bindThemePreference(settings.themePreference);
   const { t } = createTranslator(settings.language);
 
   document.title = `${t('appName')} - ${t('openSettings')}`;
@@ -30,15 +33,24 @@ async function init() {
   $('#url-help').textContent = t('providerUrlHelp');
   $('#url').setAttribute('placeholder', t('providerUrlPlaceholder'));
   $('#language-label').textContent = t('languageLabel');
+  $('#theme-label').textContent = t('themeLabel');
   $('#local-history-label').textContent = t('localHistoryLabel');
   $('#local-history-help').textContent = t('localHistoryHelp');
 
   const languageSelect = $('#language-select') as HTMLSelectElement;
+  const themeSelect = $('#theme-select') as HTMLSelectElement;
   const searchHistoryEnabled = $('#search-history-enabled') as HTMLInputElement;
   languageSelect.appendChild(create('option', { value: '', textContent: t('languageAuto') }));
   languageSelect.appendChild(create('option', { value: 'en', textContent: t('languageEnglish') }));
   languageSelect.appendChild(create('option', { value: 'pt_BR', textContent: t('languagePortuguese') }));
   languageSelect.value = settings.language ?? '';
+  THEME_PREFERENCES.forEach((themePreference) => {
+    themeSelect.appendChild(create('option', {
+      value: themePreference,
+      textContent: t(themePreference === 'system' ? 'themeSystem' : themePreference === 'light' ? 'themeLight' : 'themeDark'),
+    }));
+  });
+  themeSelect.value = settings.themePreference;
   searchHistoryEnabled.checked = settings.searchHistoryEnabled;
 
   renderProviders(settings.providers, t);
@@ -46,6 +58,15 @@ async function init() {
   languageSelect.onchange = async () => {
     await setLanguage(languageSelect.value === '' ? null : languageSelect.value as 'en' | 'pt_BR');
     location.reload();
+  };
+
+  themeSelect.onchange = async () => {
+    const themePreference = themeSelect.value as ThemePreference;
+    await setThemePreference(themePreference);
+    settings = await getSettings();
+    unbindThemePreference();
+    unbindThemePreference = bindThemePreference(settings.themePreference);
+    showToast(t('settingsSaved'));
   };
 
   searchHistoryEnabled.onchange = async () => {

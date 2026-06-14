@@ -29,6 +29,9 @@ describe('Quick Search identity', () => {
     expect(manifest.default_locale).toBe('en');
     expect(manifest.permissions).toEqual(['storage']);
     expect(manifest.host_permissions).toEqual([]);
+    expect(manifest.permissions).not.toContain('omnibox');
+    expect(manifest).not.toHaveProperty('chrome_url_overrides');
+    expect(manifest).not.toHaveProperty('search_provider');
     expect(manifest.action.default_popup).toBe('popup.html');
     expect(manifest.options_page).toBe('options.html');
   });
