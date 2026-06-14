@@ -1,0 +1,40 @@
+{
+  "name": "quick-search-extension",
+  "version": "1.0.0",
+  "description": "Alternância rápida entre buscadores.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josuesevahc/quick-search-extension.git"
+  },
+  "scripts": {
+    "dev": "npm run icons && vite build --watch",
+    "build": "npm run icons && vite build",
+    "build:manifest": "tsx scripts/build-manifest.ts",
+    "icons": "tsx scripts/generate-icons.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "zip": "npm run build && tsx scripts/zip-dist.ts",
+    "format": "prettier --write ."
+  },
+  "bugs": {
+    "url": "https://github.com/josuesevahc/quick-search-extension/issues"
+  },
+  "homepage": "https://github.com/josuesevahc/quick-search-extension#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.1",
+    "sharp": "^0.33.5",
+    "tsx": "^4.15.1",
+    "typescript": "^5.4.5",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  }
+}
