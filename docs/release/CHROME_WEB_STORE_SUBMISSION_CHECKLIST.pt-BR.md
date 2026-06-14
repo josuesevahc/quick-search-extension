@@ -38,6 +38,10 @@ Privado é apropriado somente para um piloto interno fechado. Público é razoá
 
 ## Build de Teste no GitHub Release
 
+- Índice de releases: <https://github.com/josuesevahc/quick-search-extension/releases>
+- Release mais recente: <https://github.com/josuesevahc/quick-search-extension/releases/latest>
+- Release v1.0.0: <https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0>
+
 - [ ] Crie uma tag GitHub para a versão da release.
 - [ ] Crie um GitHub Release a partir dessa tag.
 - [ ] Anexe o ZIP gerado em `release/` ao GitHub Release.

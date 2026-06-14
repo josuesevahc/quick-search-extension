@@ -45,9 +45,16 @@ To load the extension:
 
 The preferred public distribution path is the Chrome Web Store once Quick Search is approved.
 
-Before the Chrome Web Store listing is available, test builds can be downloaded from [GitHub Releases](https://github.com/josuesevahc/quick-search-extension/releases). Download the ZIP, unzip it, and follow the [user testing install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md). A Portuguese version is available in [Guia de instalação para testes](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md).
+Before the Chrome Web Store listing is available, test builds can be downloaded from GitHub Releases:
 
-Release ZIP files are generated artifacts and should not be committed to the repository.
+- [Latest release](https://github.com/josuesevahc/quick-search-extension/releases/latest)
+- [v1.0.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [English manual install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md)
+- [Portuguese manual install guide](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md)
+
+Download the release ZIP, unzip it, and load the unzipped folder in Chrome.
+
+Release ZIP files are distributed through GitHub Releases and are not committed to the repository.
 
 ## Scripts
 

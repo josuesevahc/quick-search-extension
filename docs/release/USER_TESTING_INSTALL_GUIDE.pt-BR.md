@@ -10,13 +10,11 @@ O caminho público recomendado para distribuir o Quick Search é a Chrome Web St
 
 ## Baixar a Build de Teste
 
-1. Abra a página de Releases do Quick Search no GitHub:
+- [Release mais recente](https://github.com/josuesevahc/quick-search-extension/releases/latest)
+- [Release v1.0.0](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [Todas as releases](https://github.com/josuesevahc/quick-search-extension/releases)
 
-   https://github.com/josuesevahc/quick-search-extension/releases
-
-2. Abra a release mais recente.
-3. Baixe o ZIP anexado à release.
-4. Descompacte o arquivo no seu computador.
+Baixe o asset `.zip` anexado à release, descompacte o arquivo no seu computador e carregue a pasta descompactada da extensão no Chrome.
 
 Importante: o Chrome não carrega o ZIP diretamente. Você precisa descompactar o arquivo primeiro e depois selecionar a pasta descompactada da extensão.
 

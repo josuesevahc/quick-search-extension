@@ -38,6 +38,10 @@ Private is appropriate only for an internal closed pilot. Public is reasonable a
 
 ## GitHub Release Test Build
 
+- Release index: <https://github.com/josuesevahc/quick-search-extension/releases>
+- Latest release: <https://github.com/josuesevahc/quick-search-extension/releases/latest>
+- v1.0.0 release: <https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0>
+
 - [ ] Create a GitHub tag for the release version.
 - [ ] Create a GitHub Release from that tag.
 - [ ] Attach the generated ZIP from `release/` to the GitHub Release.

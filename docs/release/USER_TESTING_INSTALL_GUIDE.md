@@ -10,13 +10,11 @@ The recommended public distribution path for Quick Search is the Chrome Web Stor
 
 ## Download the Test Build
 
-1. Open the Quick Search GitHub Releases page:
+- [Latest release](https://github.com/josuesevahc/quick-search-extension/releases/latest)
+- [v1.0.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [All releases](https://github.com/josuesevahc/quick-search-extension/releases)
 
-   https://github.com/josuesevahc/quick-search-extension/releases
-
-2. Open the latest release.
-3. Download the release ZIP attached to that release.
-4. Unzip the file on your computer.
+Download the `.zip` asset attached to the release, unzip it on your computer, and load the unzipped extension folder in Chrome.
 
 Important: Chrome cannot load the ZIP directly. You must unzip it first, then select the unzipped extension folder.
 
