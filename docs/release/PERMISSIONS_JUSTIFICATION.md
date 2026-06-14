@@ -14,9 +14,9 @@ Quick Search provides a compact popup for user-initiated searches across user-se
 
 Justification:
 
-Quick Search uses `chrome.storage.local` to save user-facing settings, including enabled search providers, custom HTTPS provider templates, the extension's internal default provider, and temporary per-tab provider preferences.
+Quick Search uses `chrome.storage.local` to save user-facing settings, including enabled search providers, custom HTTPS provider templates, the extension's internal default provider, temporary per-tab provider preferences, manual language preference, and optional local search history suggestions.
 
-The stored settings remain on the user's device. They are not sent to the developer or to any developer-operated server.
+The stored settings remain on the user's device. They are not sent to the developer or to any developer-operated server. Local suggestions are generated only from searches the user has submitted through the extension and can be disabled or cleared by the user.
 
 ## Host Permissions
 
@@ -24,7 +24,7 @@ Quick Search requests no host permissions.
 
 Justification:
 
-The extension does not read, scrape, inject into, or modify websites. Search providers are opened through normal browser navigation after the user submits a query.
+The extension does not read, scrape, inject into, or modify websites. Search providers are opened through normal browser navigation after the user submits a query. Typed text is not sent to external autocomplete providers while the user types.
 
 ## Permissions Not Used
 
@@ -52,3 +52,5 @@ Quick Search uses the Tabs API only to create or navigate tabs and to track nume
 ## Search Settings Statement
 
 Quick Search does not change Chrome's default search provider, does not override Chrome search settings, does not override the New Tab Page, does not register an omnibox keyword, and does not intercept browser address-bar searches.
+
+Quick Search does not request the `history` permission and does not intercept or read Chrome browsing history.

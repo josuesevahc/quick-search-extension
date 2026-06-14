@@ -2,7 +2,7 @@
 
 Language: English | [Português (Brasil)](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.pt-BR.md)
 
-Navigation: [README](../../README.md) | [User testing install guide](USER_TESTING_INSTALL_GUIDE.md) | [Privacy policy](PRIVACY_POLICY.md) | [Security audit](../security/EXTENSION_SECURITY_AUDIT.md)
+Navigation: [README](../../README.md) | [User testing install guide](USER_TESTING_INSTALL_GUIDE.md) | [Privacy policy](PRIVACY_POLICY.md) | [Security audit](../security/EXTENSION_SECURITY_AUDIT.md) | [Store policy risk review](STORE_POLICY_RISK_REVIEW.md)
 
 Use this checklist for the first Quick Search submission.
 
@@ -31,6 +31,8 @@ Private is appropriate only for an internal closed pilot. Public is reasonable a
 - [ ] Confirm there is no `omnibox` key.
 - [ ] Confirm there are no content scripts.
 - [ ] Confirm the extension does not use remote hosted code.
+- [ ] Confirm typed text is not sent to external autocomplete providers.
+- [ ] Confirm local search history suggestions can be disabled and cleared.
 - [ ] Confirm no source maps, tests, docs, local config, or `node_modules` are included in the ZIP.
 - [ ] Complete the manual tests in `docs/release/TEST_INSTRUCTIONS.md`.
 

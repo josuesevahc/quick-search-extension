@@ -1,7 +1,7 @@
 {
   "name": "quick-search-extension",
   "version": "1.0.0",
-  "description": "Alternância rápida entre buscadores.",
+  "description": "Quickly switch search providers from a compact popup.",
   "type": "module",
   "repository": {
     "type": "git",

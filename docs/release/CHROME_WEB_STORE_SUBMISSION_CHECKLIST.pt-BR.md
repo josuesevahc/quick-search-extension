@@ -2,7 +2,7 @@
 
 Idioma: [English](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md) | Português (Brasil)
 
-Navegação: [README em português](../../README.pt-BR.md) | [Guia de instalação para testes](USER_TESTING_INSTALL_GUIDE.pt-BR.md) | [Política de privacidade](PRIVACY_POLICY.md) | [Auditoria de segurança](../security/EXTENSION_SECURITY_AUDIT.md)
+Navegação: [README em português](../../README.pt-BR.md) | [Guia de instalação para testes](USER_TESTING_INSTALL_GUIDE.pt-BR.md) | [Política de privacidade](PRIVACY_POLICY.md) | [Auditoria de segurança](../security/EXTENSION_SECURITY_AUDIT.md) | [Revisão de risco da loja](STORE_POLICY_RISK_REVIEW.md)
 
 Use este checklist para o primeiro envio do Quick Search.
 
@@ -31,6 +31,8 @@ Privado é apropriado somente para um piloto interno fechado. Público é razoá
 - [ ] Confirme que não há chave `omnibox`.
 - [ ] Confirme que não há content scripts.
 - [ ] Confirme que a extensão não usa código remoto hospedado.
+- [ ] Confirme que o texto digitado não é enviado a provedores externos de autocomplete.
+- [ ] Confirme que sugestões locais do histórico de busca podem ser desativadas e limpas.
 - [ ] Confirme que source maps, testes, docs, configuração local ou `node_modules` não estão incluídos no ZIP.
 - [ ] Complete os testes manuais em `docs/release/TEST_INSTRUCTIONS.md`.
 

@@ -1,10 +1,20 @@
 import { SearchProvider, validateProviderList } from '../domain/provider';
 import { DEFAULT_PROVIDERS } from '../config/default-providers';
+import {
+  DEFAULT_SEARCH_HISTORY_LIMIT,
+  SearchHistoryEntry,
+  addSearchHistoryEntry,
+  normalizeSearchHistory,
+} from '../domain/search-history';
+import { SupportedLocale, SUPPORTED_LOCALES } from './i18n';
 
 export type ExtensionSettings = {
   providers: SearchProvider[];
   defaultProviderId: string | null;
   tabProviderOverrides: Record<number, string>;
+  language: SupportedLocale | null;
+  searchHistoryEnabled: boolean;
+  searchHistory: SearchHistoryEntry[];
 };
 
 const STORAGE_KEY = 'settings';
@@ -14,6 +24,9 @@ export function createDefaultSettings(): ExtensionSettings {
     providers: DEFAULT_PROVIDERS.map(provider => ({ ...provider })),
     defaultProviderId: 'google',
     tabProviderOverrides: {},
+    language: null,
+    searchHistoryEnabled: false,
+    searchHistory: [],
   };
 }
 
@@ -50,10 +63,24 @@ function normalizeSettings(rawSettings: unknown): ExtensionSettings {
     });
   }
 
+  const rawLanguage = rawSettings.language;
+  const language =
+    typeof rawLanguage === 'string' && SUPPORTED_LOCALES.includes(rawLanguage as SupportedLocale)
+      ? (rawLanguage as SupportedLocale)
+      : null;
+
+  const searchHistoryEnabled =
+    typeof rawSettings.searchHistoryEnabled === 'boolean'
+      ? rawSettings.searchHistoryEnabled
+      : false;
+
   return {
     providers,
     defaultProviderId,
     tabProviderOverrides,
+    language,
+    searchHistoryEnabled,
+    searchHistory: normalizeSearchHistory(rawSettings.searchHistory, DEFAULT_SEARCH_HISTORY_LIMIT),
   };
 }
 
@@ -95,5 +122,36 @@ export async function setTabProviderOverride(tabId: number, providerId: string):
 export async function clearTabProviderOverride(tabId: number): Promise<void> {
   const settings = await getSettings();
   delete settings.tabProviderOverrides[tabId];
+  await saveSettings(settings);
+}
+
+export async function setLanguage(language: SupportedLocale | null): Promise<void> {
+  const settings = await getSettings();
+  settings.language = language;
+  await saveSettings(settings);
+}
+
+export async function setSearchHistoryEnabled(enabled: boolean): Promise<void> {
+  const settings = await getSettings();
+  settings.searchHistoryEnabled = enabled;
+  await saveSettings(settings);
+}
+
+export async function recordSearch(query: string, providerId: string, searchedAt: number = Date.now()): Promise<void> {
+  const settings = await getSettings();
+  if (!settings.searchHistoryEnabled) return;
+  settings.searchHistory = addSearchHistoryEntry(
+    settings.searchHistory,
+    query,
+    providerId,
+    searchedAt,
+    DEFAULT_SEARCH_HISTORY_LIMIT
+  );
+  await saveSettings(settings);
+}
+
+export async function clearSearchHistory(): Promise<void> {
+  const settings = await getSettings();
+  settings.searchHistory = [];
   await saveSettings(settings);
 }

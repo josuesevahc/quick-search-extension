@@ -15,3 +15,7 @@ export async function openUrl(url: string, newTab: boolean = false): Promise<voi
     }
   }
 }
+
+export function isIncognitoContext(): boolean {
+  return !!chrome.extension?.inIncognitoContext;
+}

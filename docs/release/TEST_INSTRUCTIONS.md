@@ -56,6 +56,34 @@ release/quick-search-extension-1.0.0.zip
 9. Use the new-tab search action.
 10. Confirm a new tab opens with a DuckDuckGo search URL.
 
+## Local Search History Suggestions
+
+1. Open the options page.
+2. Enable local search history suggestions.
+3. Open the popup.
+4. Submit `test search history` with any provider.
+5. Open the popup again.
+6. Type `test`.
+7. Confirm the previous submitted query appears as a local suggestion.
+8. Use ArrowDown and ArrowUp to move through suggestions.
+9. Press Escape and confirm suggestions close.
+10. Type `history` and confirm includes matches appear after prefix matches.
+11. Click a suggestion and confirm it fills/submits using the current-tab search pattern.
+12. Open the options page and click "Clear search history".
+13. Open the popup and confirm the cleared query no longer appears.
+14. Disable local search history suggestions and confirm no suggestions appear while typing.
+
+Confirm no network request is made to external autocomplete services while typing.
+
+## Language Selector
+
+1. Open the options page.
+2. Change language to Portuguese (Brazil).
+3. Confirm popup and options labels use Portuguese.
+4. Change language to English.
+5. Confirm popup and options labels use English.
+6. Set language back to browser default if desired.
+
 ## Internal Default Provider
 
 1. Open the popup.
@@ -111,11 +139,13 @@ Before upload, verify:
 
 - `dist/manifest.json` has `manifest_version: 3`.
 - `dist/manifest.json` requests only `storage`.
+- `dist/manifest.json` includes `default_locale: en` and localized manifest messages.
 - `dist/manifest.json` has empty `host_permissions`.
 - There is no `chrome_settings_overrides`.
 - There is no `chrome_url_overrides`.
 - There is no `omnibox` key.
 - There are no content scripts.
+- There are no external autocomplete calls while typing.
 - There are no source maps in `dist/`.
 - There are no `.env`, `.pem`, `.key`, tests, docs, or `node_modules` files in the ZIP.
 

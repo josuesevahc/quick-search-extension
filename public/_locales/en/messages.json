@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Quick Search",
+    "description": "Extension name"
+  },
+  "appShortName": {
+    "message": "Quick Search",
+    "description": "Short extension name"
+  },
+  "appDescription": {
+    "message": "Quickly switch search providers from a compact popup.",
+    "description": "Extension description"
+  }
+}

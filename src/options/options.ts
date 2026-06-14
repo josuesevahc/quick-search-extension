@@ -1,40 +1,78 @@
-import { APP_META, UI_TEXT } from '../config/app';
-import { getSettings, saveSettings, resetSettings } from '../shared/storage';
+import {
+  clearSearchHistory,
+  getSettings,
+  resetSettings,
+  saveSettings,
+  setLanguage,
+  setSearchHistoryEnabled,
+} from '../shared/storage';
 import { $, create } from '../shared/dom';
 import { SearchProvider, validateProvider } from '../domain/provider';
 import { getProviderInitial } from '../shared/provider-avatar';
+import { createTranslator, MessageKey } from '../shared/i18n';
 
 async function init() {
-  const settings = await getSettings();
+  let settings = await getSettings();
+  const { t } = createTranslator(settings.language);
 
-  document.title = `${APP_META.productName} - ${UI_TEXT.openSettings}`;
-  $('#title').textContent = APP_META.productName;
-  $('#description').textContent = APP_META.description;
-  $('#providers-title').textContent = UI_TEXT.providersTitle;
-  $('#add-provider-btn').textContent = UI_TEXT.addProvider;
-  $('#restore-defaults-btn').textContent = UI_TEXT.restoreDefaults;
-  $('#cancel-btn').textContent = UI_TEXT.cancel;
-  $('#save-btn').textContent = UI_TEXT.save;
-  $('#name-label').textContent = UI_TEXT.providerNameLabel;
-  $('#url-label').textContent = UI_TEXT.providerUrlLabel;
-  $('#url-help').textContent = UI_TEXT.providerUrlHelp;
-  $('#url').setAttribute('placeholder', UI_TEXT.providerUrlPlaceholder);
+  document.title = `${t('appName')} - ${t('openSettings')}`;
+  $('#title').textContent = t('appName');
+  $('#description').textContent = t('appDescription');
+  $('#providers-title').textContent = t('providersTitle');
+  $('#preferences-title').textContent = t('preferencesTitle');
+  $('#add-provider-btn').textContent = t('addProvider');
+  $('#restore-defaults-btn').textContent = t('restoreDefaults');
+  $('#clear-search-history-btn').textContent = t('clearSearchHistory');
+  $('#cancel-btn').textContent = t('cancel');
+  $('#save-btn').textContent = t('save');
+  $('#name-label').textContent = t('providerNameLabel');
+  $('#url-label').textContent = t('providerUrlLabel');
+  $('#url-help').textContent = t('providerUrlHelp');
+  $('#url').setAttribute('placeholder', t('providerUrlPlaceholder'));
+  $('#language-label').textContent = t('languageLabel');
+  $('#local-history-label').textContent = t('localHistoryLabel');
+  $('#local-history-help').textContent = t('localHistoryHelp');
 
-  renderProviders(settings.providers);
+  const languageSelect = $('#language-select') as HTMLSelectElement;
+  const searchHistoryEnabled = $('#search-history-enabled') as HTMLInputElement;
+  languageSelect.appendChild(create('option', { value: '', textContent: t('languageAuto') }));
+  languageSelect.appendChild(create('option', { value: 'en', textContent: t('languageEnglish') }));
+  languageSelect.appendChild(create('option', { value: 'pt_BR', textContent: t('languagePortuguese') }));
+  languageSelect.value = settings.language ?? '';
+  searchHistoryEnabled.checked = settings.searchHistoryEnabled;
 
-  $('#add-provider-btn').onclick = () => showModal();
+  renderProviders(settings.providers, t);
+
+  languageSelect.onchange = async () => {
+    await setLanguage(languageSelect.value === '' ? null : languageSelect.value as 'en' | 'pt_BR');
+    location.reload();
+  };
+
+  searchHistoryEnabled.onchange = async () => {
+    await setSearchHistoryEnabled(searchHistoryEnabled.checked);
+    settings = await getSettings();
+    showToast(t('settingsSaved'));
+  };
+
+  $('#clear-search-history-btn').onclick = async () => {
+    await clearSearchHistory();
+    settings = await getSettings();
+    showToast(t('searchHistoryCleared'));
+  };
+
+  $('#add-provider-btn').onclick = () => showModal(undefined, t);
   $('#restore-defaults-btn').onclick = async () => {
-    if (confirm(UI_TEXT.confirmRestoreDefaults)) {
+    if (confirm(t('confirmRestoreDefaults'))) {
       await resetSettings();
       location.reload();
     }
   };
 
   $('#cancel-btn').onclick = hideModal;
-  $('#provider-form').onsubmit = handleSaveProvider;
+  $('#provider-form').onsubmit = (event) => handleSaveProvider(event, t);
 }
 
-function renderProviders(providers: SearchProvider[]) {
+function renderProviders(providers: SearchProvider[], t: (key: MessageKey) => string) {
   const list = $('#providers-list');
   list.innerHTML = '';
 
@@ -56,15 +94,15 @@ function renderProviders(providers: SearchProvider[]) {
         !provider.isBuiltIn
           ? create('button', {
               className: 'btn-icon',
-              textContent: UI_TEXT.edit,
+              textContent: t('edit'),
               onclick: () => showModal(provider),
             })
           : '',
         !provider.isBuiltIn
           ? create('button', {
               className: 'btn-icon',
-              textContent: UI_TEXT.remove,
-              onclick: () => removeProvider(provider.id),
+              textContent: t('remove'),
+              onclick: () => removeProvider(provider.id, t),
             })
           : '',
       ]),
@@ -82,23 +120,23 @@ async function toggleProvider(id: string, enabled: boolean) {
   }
 }
 
-async function removeProvider(id: string) {
-  if (confirm(UI_TEXT.confirmRemoveProvider)) {
+async function removeProvider(id: string, t: (key: MessageKey) => string) {
+  if (confirm(t('confirmRemoveProvider'))) {
     const settings = await getSettings();
     settings.providers = settings.providers.filter((p) => p.id !== id || p.isBuiltIn);
     await saveSettings(settings);
-    renderProviders(settings.providers);
+    renderProviders(settings.providers, t);
   }
 }
 
-function showModal(provider?: SearchProvider) {
+function showModal(provider?: SearchProvider, t = createTranslator().t) {
   const modal = $('#modal');
   const title = $('#modal-title');
   const nameInput = $('#name') as HTMLInputElement;
   const urlInput = $('#url') as HTMLInputElement;
   const idInput = $('#edit-id') as HTMLInputElement;
 
-  title.textContent = provider ? UI_TEXT.edit : UI_TEXT.addProvider;
+  title.textContent = provider ? t('edit') : t('addProvider');
   nameInput.value = provider ? provider.name : '';
   urlInput.value = provider ? provider.searchUrlTemplate : '';
   idInput.value = provider ? provider.id : '';
@@ -116,7 +154,7 @@ function showToast(message: string, type: 'success' | 'error' = 'success') {
   setTimeout(() => toast.remove(), 3000);
 }
 
-async function handleSaveProvider(e: Event) {
+async function handleSaveProvider(e: Event, t: (key: MessageKey) => string) {
   e.preventDefault();
   const name = ($('#name') as HTMLInputElement).value;
   const url = ($('#url') as HTMLInputElement).value;
@@ -129,14 +167,14 @@ async function handleSaveProvider(e: Event) {
   );
 
   if (error) {
-    showToast(error, 'error');
+    showToast(t(error), 'error');
     return;
   }
 
   const existingIndex = settings.providers.findIndex((p) => p.id === id);
   if (existingIndex > -1) {
     if (settings.providers[existingIndex].isBuiltIn) {
-      showToast(UI_TEXT.providerUnavailable, 'error');
+      showToast(t('providerUnavailable'), 'error');
       return;
     }
     settings.providers[existingIndex] = {
@@ -149,9 +187,9 @@ async function handleSaveProvider(e: Event) {
   }
 
   await saveSettings(settings);
-  showToast(UI_TEXT.providerSaved);
+  showToast(t('providerSaved'));
   hideModal();
-  renderProviders(settings.providers);
+  renderProviders(settings.providers, t);
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -101,6 +101,6 @@ docs/             Supporting technical documentation
 
 - Language: [Portuguese README](README.pt-BR.md)
 - Testing: [User testing install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md) / [Portuguese guide](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md)
-- Release: [Chrome Web Store submission checklist](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [test instructions](docs/release/TEST_INSTRUCTIONS.md), and [store listing draft](docs/release/STORE_LISTING_DRAFT.md)
+- Release: [Chrome Web Store submission checklist](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [test instructions](docs/release/TEST_INSTRUCTIONS.md), [store listing draft](docs/release/STORE_LISTING_DRAFT.md), and [store policy risk review](docs/release/STORE_POLICY_RISK_REVIEW.md)
 - Privacy and security: [Privacy policy](docs/release/PRIVACY_POLICY.md), [permissions justification](docs/release/PERMISSIONS_JUSTIFICATION.md), and [security audit](docs/security/EXTENSION_SECURITY_AUDIT.md)
 - Development: [Manual](docs/manual.md) and [platform limitations](docs/platform-limitations.md)

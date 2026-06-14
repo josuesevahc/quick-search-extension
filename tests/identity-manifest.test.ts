@@ -14,19 +14,22 @@ describe('Quick Search identity', () => {
     expect(APP_META).toEqual({
       productName: 'Quick Search',
       shortName: 'Quick Search',
-      description: 'Alternância rápida entre buscadores.',
+      description: 'Quickly switch search providers from a compact popup.',
     });
     expect(packageJson.description).toBe(APP_META.description);
   });
 
-  it('keeps the generated manifest consistent with APP_META', () => {
+  it('keeps the generated manifest localized and minimally permissioned', () => {
     const manifest = getManifest(packageJson.version);
 
     expect(manifest.manifest_version).toBe(3);
-    expect(manifest.name).toBe(APP_META.productName);
-    expect(manifest.short_name).toBe(APP_META.shortName);
-    expect(manifest.description).toBe(APP_META.description);
+    expect(manifest.name).toBe('__MSG_appName__');
+    expect(manifest.short_name).toBe('__MSG_appShortName__');
+    expect(manifest.description).toBe('__MSG_appDescription__');
+    expect(manifest.default_locale).toBe('en');
     expect(manifest.permissions).toEqual(['storage']);
     expect(manifest.host_permissions).toEqual([]);
+    expect(manifest.action.default_popup).toBe('popup.html');
+    expect(manifest.options_page).toBe('options.html');
   });
 });

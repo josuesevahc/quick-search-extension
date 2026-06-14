@@ -101,6 +101,6 @@ docs/             Documentação técnica complementar
 
 - Idioma: [README em inglês](README.md)
 - Testes: [Guia de instalação para testes](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md) / [guia em inglês](docs/release/USER_TESTING_INSTALL_GUIDE.md)
-- Release: [Checklist de envio para a Chrome Web Store](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.pt-BR.md), [checklist em inglês](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [instruções de teste](docs/release/TEST_INSTRUCTIONS.md) e [rascunho da listagem da loja](docs/release/STORE_LISTING_DRAFT.md)
+- Release: [Checklist de envio para a Chrome Web Store](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.pt-BR.md), [checklist em inglês](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [instruções de teste](docs/release/TEST_INSTRUCTIONS.md), [rascunho da listagem da loja](docs/release/STORE_LISTING_DRAFT.md) e [revisão de risco da loja](docs/release/STORE_POLICY_RISK_REVIEW.md)
 - Privacidade e segurança: [Política de privacidade](docs/release/PRIVACY_POLICY.md), [justificativa de permissões](docs/release/PERMISSIONS_JUSTIFICATION.md) e [auditoria de segurança](docs/security/EXTENSION_SECURITY_AUDIT.md)
 - Desenvolvimento: [Manual](docs/manual.md) e [limitações da plataforma](docs/platform-limitations.md)

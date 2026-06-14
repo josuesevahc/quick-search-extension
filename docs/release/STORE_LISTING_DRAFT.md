@@ -18,6 +18,8 @@ Open the extension popup, type a search term, choose a provider, and open the re
 
 Quick Search does not change Chrome's default search engine, does not override the New Tab Page, and does not intercept address-bar searches. Searches happen only when you submit a query from the extension popup.
 
+Optional local search history suggestions can be enabled in settings. Suggestions are generated only from searches submitted through Quick Search and stored on your device. Typed text is not sent to external autocomplete services while you type.
+
 Privacy-focused basics:
 
 - No ads
@@ -28,6 +30,7 @@ Privacy-focused basics:
 - No host permissions
 - No page-content access
 - No browsing-history access
+- No external autocomplete calls while typing
 
 Your search query is sent directly to the provider you select when you submit a search, just like navigating to that provider's search URL.
 
@@ -39,7 +42,7 @@ Productivity
 
 Primary listing language: English
 
-The current in-extension UI text is Portuguese. If publishing broadly in English, either disclose this in the listing or localize the UI before public launch.
+The extension supports English and Brazilian Portuguese. It follows the browser language by default and includes a manual language selector in settings.
 
 ## Single Purpose Field
 
@@ -47,7 +50,7 @@ Quick Search provides a compact popup for user-initiated searches across user-se
 
 ## Permission Justification Field
 
-`storage`: Saves user-facing settings locally, including enabled providers, custom HTTPS provider templates, the extension's internal default provider, and temporary provider preferences for tabs.
+`storage`: Saves user-facing settings locally, including enabled providers, custom HTTPS provider templates, the extension's internal default provider, temporary provider preferences for tabs, language preference, and optional local search history suggestions.
 
 Quick Search requests no host permissions and does not read website content.
 
@@ -60,6 +63,8 @@ Use the Chrome Web Store dashboard wording available at submission time. Suggest
 - The extension does not use data for unrelated purposes.
 - The extension does not use data for creditworthiness or lending.
 - Search terms typed into the popup are sent to the user-selected search provider when the user submits a search.
+- Typed text is not sent to external autocomplete providers before submission.
+- Optional local search history suggestions are stored only on the user's device and can be cleared.
 
 If the dashboard asks whether data is transmitted off the user's device, disclose that search terms are included in the URL opened at the selected search provider.
 
@@ -68,9 +73,10 @@ If the dashboard asks whether data is transmitted off the user's device, disclos
 Prepare screenshots that show:
 
 1. Popup with search field and provider list.
-2. Popup with a provider selected.
+2. Popup with a provider selected and local suggestions visible only if using non-personal sample terms.
 3. Options page with built-in providers.
 4. Custom provider form showing the HTTPS template requirement.
+5. Language selector and local history suggestions setting.
 
 Avoid showing personal search terms, personal browser tabs, account names, bookmarks, or private URLs.
 
@@ -95,3 +101,5 @@ Initial release of Quick Search:
 - Choose an internal default provider for the extension.
 - Set temporary provider preferences per tab.
 - Manage custom HTTPS provider templates.
+- Optional local search history suggestions stored on device.
+- English and Brazilian Portuguese UI.

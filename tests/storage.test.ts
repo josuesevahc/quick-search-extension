@@ -5,7 +5,11 @@ import {
   resetSettings,
   saveSettings,
   setDefaultProvider,
+  setLanguage,
+  setSearchHistoryEnabled,
   setTabProviderOverride,
+  recordSearch,
+  clearSearchHistory,
 } from '../src/shared/storage';
 
 let storageData: Record<string, unknown>;
@@ -73,5 +77,28 @@ describe('storage settings', () => {
 
     const settings = await getSettings();
     expect(settings.tabProviderOverrides[123]).toBe('duckduckgo');
+  });
+
+  it('persists a manual language override', async () => {
+    await resetSettings();
+    await setLanguage('pt_BR');
+
+    await expect(getSettings()).resolves.toMatchObject({ language: 'pt_BR' });
+  });
+
+  it('does not record search history while disabled', async () => {
+    await resetSettings();
+    await recordSearch('docs', 'google', 1);
+
+    await expect(getSettings()).resolves.toMatchObject({ searchHistory: [] });
+  });
+
+  it('records and clears local search history when enabled', async () => {
+    await resetSettings();
+    await setSearchHistoryEnabled(true);
+    await recordSearch('docs', 'google', 1);
+    await clearSearchHistory();
+
+    await expect(getSettings()).resolves.toMatchObject({ searchHistory: [] });
   });
 });

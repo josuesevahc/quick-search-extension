@@ -24,6 +24,10 @@ body {
   gap: 10px;
 }
 
+.search-container {
+  position: relative;
+}
+
 .search-container input {
   width: 100%;
   padding: 8px 12px;
@@ -36,6 +40,35 @@ body {
 .search-container input:focus {
   outline: 2px solid var(--primary-color);
   border-color: transparent;
+}
+
+.suggestions-list {
+  margin-top: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-color);
+  overflow: hidden;
+}
+
+.suggestions-list.hidden {
+  display: none;
+}
+
+.suggestion-item {
+  display: block;
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover,
+.suggestion-item.highlighted {
+  background: var(--hover-color);
 }
 
 .provider-list {

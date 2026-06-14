@@ -21,7 +21,7 @@ Quick Search is suitable for a low-risk first release path if it remains a popup
 
 The extension uses Manifest V3, has no host permissions, does not inject content scripts, does not use remote hosted code, and does not override Chrome search settings or the New Tab Page.
 
-One permission reduction was made during this audit: the `tabs` permission was removed. The extension still uses the Tabs API for user-triggered tab navigation and tab-ID cleanup, but it does not read sensitive tab properties such as URL, title, favicon, or pending URL.
+One permission reduction was made during this audit: the `tabs` permission was removed. The extension still uses the Tabs API for user-triggered tab navigation and tab-ID cleanup, but it does not read sensitive tab properties such as URL, title, favicon, or pending URL. The current permission set remains `storage` only.
 
 ## Manifest V3 Compliance
 
@@ -33,6 +33,7 @@ Manifest characteristics:
 - Background script: service worker at `background.js`
 - Extension UI: action popup and options page
 - Host permissions: none
+- Default locale: `en`
 - Content scripts: none
 - Settings overrides: none
 - Chrome URL overrides: none
@@ -47,7 +48,7 @@ Current permissions:
 
 | Permission | Status | Justification |
 | --- | --- | --- |
-| `storage` | Required | Stores user-facing settings in `chrome.storage.local`: enabled providers, custom provider templates, internal default provider, and temporary per-tab provider preferences. |
+| `storage` | Required | Stores user-facing settings in `chrome.storage.local`: enabled providers, custom provider templates, internal default provider, temporary per-tab provider preferences, language preference, and optional local search history suggestions. |
 
 Current host permissions:
 
@@ -80,6 +81,7 @@ Findings:
 - HTML files load bundled local module scripts only.
 - Built JavaScript is emitted into `dist/assets/` and `dist/background.js`.
 - Built-in provider URLs are navigation targets, not executable code.
+- Typed text is not sent to external autocomplete providers while the user types.
 
 ## CSP Review
 
@@ -132,8 +134,8 @@ Expected files:
 
 - `manifest.json`
 - `background.js`
-- `src/popup/popup.html`
-- `src/options/options.html`
+- `popup.html`
+- `options.html`
 - bundled CSS and JS under `assets/`
 - icons under `icons/`
 
@@ -159,16 +161,21 @@ Data stored locally:
 - Custom provider names and HTTPS search URL templates
 - Internal default provider ID
 - Temporary tab provider override by numeric tab ID
+- Manual language preference
+- Optional local search history suggestions when enabled
 
 Data processed during use:
 
 - Search terms typed into the extension popup
+- Matching against local search history stored in `chrome.storage.local`, if suggestions are enabled
 
 Data transmission:
 
 - When the user submits a search, the extension builds the selected provider URL and opens it in the current tab or a new tab.
 - The selected search provider receives the query as part of normal web navigation.
-- The extension developer does not receive search terms or settings.
+- Typed text is not sent to Google, Bing, Brave, Perplexity, DuckDuckGo, or external autocomplete providers before submission.
+- The extension developer does not receive search terms, search history, or settings.
+- Local search history can be cleared by the user.
 
 Data not accessed:
 
@@ -183,6 +190,8 @@ Data not accessed:
 
 Chrome storage is used only for user-facing extension settings.
 
+Local search history is not saved when the extension detects an incognito extension context. This uses the existing extension context and does not add permissions.
+
 ## Search Behavior and Policy Review
 
 Status: Low risk if v1 remains popup-only.
@@ -196,6 +205,8 @@ The extension does not:
 - Intercept or redirect browser searches
 - Use `webRequest` or `declarativeNetRequest`
 - Automatically redirect queries
+- Read or intercept Chrome browsing history
+- Send typed text to external autocomplete providers
 
 The extension does:
 
@@ -204,6 +215,7 @@ The extension does:
 - Open a provider URL only after a user action
 - Store an internal default provider for the extension UI only
 - Store a temporary per-tab preference for the extension UI only
+- Optionally store local submitted-query history for on-device suggestions only
 
 Important wording: "default provider" means Quick Search's internal default provider, not Chrome's default search engine.
 
@@ -214,6 +226,8 @@ Status: Pass.
 Single purpose: provide a compact popup for user-initiated searches across user-selected search providers.
 
 The current behavior matches that purpose. There is no telemetry, ads, affiliate logic, monetization, background browsing, page scraping, or unrelated browsing feature.
+
+The extension uses generic initials/monograms for search providers rather than official third-party logos. See `docs/release/STORE_POLICY_RISK_REVIEW.md`.
 
 ## Release Recommendation
 
@@ -236,7 +250,11 @@ Private release is only necessary if the developer wants a closed internal pilot
    - Risk: users can add an HTTPS provider controlled by someone else.
    - Mitigation: templates must be HTTPS and must include `{searchTerms}`; users choose and manage providers themselves.
 
-3. Store wording around "default"
+3. Local search history suggestions
+   - Risk: users may not expect saved local query suggestions.
+   - Mitigation: disabled by default, disclosed in settings and privacy docs, stored only locally, capped, and clearable.
+
+4. Store wording around "default"
    - Risk: reviewers may confuse internal default provider with Chrome default search provider.
    - Mitigation: documentation and listing draft use "internal default provider" and explicitly state that Chrome search settings are not changed.
 

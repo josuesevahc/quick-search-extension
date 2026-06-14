@@ -22,7 +22,7 @@ describe('validateProvider', () => {
         },
         ['google']
       )
-    ).toBe('ID duplicado.');
+    ).toBe('duplicateId');
   });
 
   it('rejects non-HTTPS templates', () => {
@@ -32,7 +32,7 @@ describe('validateProvider', () => {
         name: 'Insecure',
         searchUrlTemplate: 'http://example.com/search?q={searchTerms}',
       })
-    ).toBe('URL deve usar HTTPS.');
+    ).toBe('providerHttpsRequired');
   });
 
   it('rejects templates without searchTerms placeholder', () => {
@@ -42,7 +42,7 @@ describe('validateProvider', () => {
         name: 'Missing Placeholder',
         searchUrlTemplate: 'https://example.com/search',
       })
-    ).toBe('Template deve conter {searchTerms}.');
+    ).toBe('providerSearchTermsRequired');
   });
 
   it('rejects javascript templates', () => {
@@ -52,7 +52,7 @@ describe('validateProvider', () => {
         name: 'Bad',
         searchUrlTemplate: 'javascript:alert({searchTerms})',
       })
-    ).toBe('Protocolo inválido.');
+    ).toBe('providerInvalidProtocol');
   });
 
   it('rejects empty URLs', () => {
@@ -62,7 +62,7 @@ describe('validateProvider', () => {
         name: 'Empty',
         searchUrlTemplate: '   ',
       })
-    ).toBe('URL obrigatória.');
+    ).toBe('providerUrlRequired');
   });
 
   it('rejects corrupted providers from storage', () => {

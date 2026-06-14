@@ -1,15 +1,14 @@
-import { APP_META } from '../config/app';
-
 export const getManifest = (version: string) => ({
   manifest_version: 3,
-  name: APP_META.productName,
-  short_name: APP_META.shortName,
+  name: '__MSG_appName__',
+  short_name: '__MSG_appShortName__',
   version: version,
-  description: APP_META.description,
+  description: '__MSG_appDescription__',
+  default_locale: 'en',
   permissions: ['storage'],
   host_permissions: [],
   action: {
-    default_popup: 'src/popup/popup.html',
+    default_popup: 'popup.html',
     default_icon: {
       '16': 'icons/icon-16.png',
       '32': 'icons/icon-32.png',
@@ -17,7 +16,7 @@ export const getManifest = (version: string) => ({
       '128': 'icons/icon-128.png'
     }
   },
-  options_page: 'src/options/options.html',
+  options_page: 'options.html',
   background: {
     service_worker: 'background.js',
     type: 'module'

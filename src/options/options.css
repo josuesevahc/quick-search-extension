@@ -46,6 +46,49 @@ p {
   overflow: hidden;
 }
 
+.preferences-section {
+  margin-top: 28px;
+}
+
+.preferences-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preference-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.preference-row small {
+  display: block;
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.preference-row select {
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: white;
+}
+
+.preference-actions {
+  padding: 14px 20px;
+}
+
+.actions-section {
+  margin-top: 24px;
+}
+
 .provider-row {
   display: flex;
   align-items: center;

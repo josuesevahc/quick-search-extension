@@ -10,6 +10,7 @@
   <div id="app">
     <div class="search-container">
       <input type="text" id="search-input" autofocus>
+      <div id="suggestions-list" class="suggestions-list hidden" role="listbox"></div>
     </div>
     <div id="status" class="status" role="status" aria-live="polite"></div>
     <div id="provider-list" class="provider-list"></div>
@@ -22,7 +23,7 @@
         <input type="checkbox" id="temp-override">
         <span id="temp-override-label"></span>
       </label>
-      <a href="../options/options.html" id="settings-link" target="_blank"></a>
+      <a href="options.html" id="settings-link" target="_blank"></a>
     </div>
   </div>
   <script type="module" src="popup.ts"></script>

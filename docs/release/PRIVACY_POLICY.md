@@ -14,8 +14,12 @@ Quick Search stores the following settings locally in your browser using `chrome
 - Custom provider names and HTTPS search URL templates
 - The extension's internal default provider
 - Temporary provider preferences for individual tabs
+- Manual language preference
+- Optional local search history suggestions, if enabled
 
 These settings are used only to provide the extension's search switching functionality.
+
+Optional local search history suggestions are stored only on your device. They contain the submitted query string, the selected provider ID, and the time the search was submitted. You can disable local suggestions and clear local search history from the options page.
 
 ## Search Queries
 
@@ -23,7 +27,9 @@ When you type a search query into Quick Search and submit it, the extension crea
 
 The selected search provider receives your query as part of normal web navigation. For example, if you choose Google, Bing, DuckDuckGo, or another provider, that provider receives the query according to its own privacy policy and terms.
 
-Quick Search's developer does not receive, collect, sell, or share your search queries.
+Typed text is not sent to Google, Bing, Brave, Perplexity, DuckDuckGo, or any external autocomplete provider while you type. Search terms are sent to the selected search provider only after you submit a search.
+
+Quick Search's developer does not receive, collect, transmit, sell, or share your search queries or local search history.
 
 ## Data Quick Search Does Not Access
 
@@ -45,6 +51,8 @@ Quick Search does not read or collect:
 Quick Search does not send data to any developer-operated server.
 
 Search queries are sent only to the search provider selected by the user when the user submits a search.
+
+Local search history suggestions, if enabled, remain in `chrome.storage.local` on the user's device.
 
 ## Remote Code, Analytics, and Ads
 

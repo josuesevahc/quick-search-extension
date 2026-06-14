@@ -15,10 +15,30 @@
     <main>
       <section class="providers-section">
         <div class="section-header">
-          <h2 id="providers-title">Buscadores</h2>
+          <h2 id="providers-title"></h2>
           <button id="add-provider-btn" class="btn-primary"></button>
         </div>
         <div id="providers-list" class="providers-list"></div>
+      </section>
+
+      <section class="preferences-section">
+        <h2 id="preferences-title"></h2>
+        <div class="preferences-panel">
+          <label class="preference-row" for="language-select">
+            <span id="language-label"></span>
+            <select id="language-select"></select>
+          </label>
+          <label class="preference-row" for="search-history-enabled">
+            <span>
+              <span id="local-history-label"></span>
+              <small id="local-history-help"></small>
+            </span>
+            <input type="checkbox" id="search-history-enabled">
+          </label>
+          <div class="preference-actions">
+            <button id="clear-search-history-btn" class="btn-secondary"></button>
+          </div>
+        </div>
       </section>
 
       <section class="actions-section">

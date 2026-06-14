@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Quick Search",
+    "description": "Nome da extensao"
+  },
+  "appShortName": {
+    "message": "Quick Search",
+    "description": "Nome curto da extensao"
+  },
+  "appDescription": {
+    "message": "Alterne rapidamente entre buscadores em um popup compacto.",
+    "description": "Descricao da extensao"
+  }
+}
