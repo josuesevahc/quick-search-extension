@@ -2,6 +2,14 @@
 
 Navigation: [README](../../README.md) | [Chrome Web Store submission checklist](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md) | [Privacy policy](PRIVACY_POLICY.md)
 
+Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. This draft now reflects the `main` branch prepared for a future update and must not be used to claim that the pending v1.0.0 package already includes these unreleased changes.
+
+## Unreleased
+
+- Added light, dark, and system theme preference. The default follows the browser or system color scheme, and manual overrides are stored locally.
+- Changed local search history suggestion acceptance so suggestions fill the input without immediately executing a search.
+- No additional permissions were added.
+
 ## Name
 
 Quick Search

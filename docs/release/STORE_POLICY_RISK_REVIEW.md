@@ -4,6 +4,8 @@ Navigation: [README](../../README.md) | [Security audit](../security/EXTENSION_S
 
 Review date: 2026-06-14
 
+Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance behavior reviewed below are committed to `main` for a future update, likely v1.1.0, and the submitted v1.0.0 package remains untouched.
+
 ## Icon Audit
 
 `npm run icons` runs `scripts/generate-icons.ts`.

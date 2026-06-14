@@ -4,7 +4,9 @@ Navigation: [README](../../README.md) | [Chrome Web Store submission checklist](
 
 Audit date: 2026-06-14
 
-Scope: source files, Manifest V3 template, generated `dist/` output, dependency lockfile, existing release ZIP path, and Chrome Web Store release posture for Quick Search 1.0.0.
+Scope: source files, Manifest V3 template, generated `dist/` output, dependency lockfile, existing release ZIP path, and Chrome Web Store release posture for Quick Search.
+
+Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. Theme preference and safe local suggestion acceptance are committed to `main` for a future update, likely v1.1.0; the submitted v1.0.0 package remains untouched.
 
 References reviewed:
 

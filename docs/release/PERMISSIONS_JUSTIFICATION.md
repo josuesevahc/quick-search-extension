@@ -4,6 +4,8 @@ Navigation: [README](../../README.md) | [Privacy policy](PRIVACY_POLICY.md) | [C
 
 Use this content when completing the Chrome Web Store privacy and permissions fields.
 
+Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance behavior described here are committed to `main` for a future update; they do not require a new permission and have not been uploaded as a new Chrome Web Store package yet.
+
 ## Single Purpose
 
 Quick Search provides a compact popup for user-initiated searches across user-selected search providers. Users type a query, choose a provider, and open the search in the current tab or a new tab.

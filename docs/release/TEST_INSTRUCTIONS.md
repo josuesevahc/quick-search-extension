@@ -4,6 +4,8 @@ Navigation: [README](../../README.md) | [User testing install guide](USER_TESTIN
 
 Run these checks before uploading a ZIP to the Chrome Web Store.
 
+Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance checks below validate the `main` branch prepared for a future update; they do not mean a new Chrome Web Store package has been uploaded.
+
 ## Automated Checks
 
 From the repository root:

@@ -8,6 +8,16 @@ The extension keeps its own provider list, builds URLs from templates that inclu
 
 Repository: <https://github.com/josuesevahc/quick-search-extension>
 
+## Release Status
+
+Chrome Web Store v1.0.0 has been submitted and is still under review. The current `main` branch includes unreleased changes prepared for a future update, likely v1.1.0.
+
+## Unreleased
+
+- Added light, dark, and system theme preference. The default follows the browser or system color scheme, and manual overrides are stored locally.
+- Changed local search history suggestion acceptance so suggestions fill the input without immediately executing a search. Search execution requires explicit submission.
+- No additional permissions, host permissions, telemetry, tracking, remote code, or remote autocomplete were added.
+
 ## Features
 
 - Search field in the popup.
@@ -44,7 +54,7 @@ To load the extension:
 
 ## Download and Test
 
-The preferred public distribution path is the Chrome Web Store once Quick Search is approved.
+The preferred public distribution path is the Chrome Web Store once Quick Search is approved. The submitted Chrome Web Store v1.0.0 package remains unchanged while the unreleased changes above are prepared in `main` for a future update.
 
 Before the Chrome Web Store listing is available, test builds can be downloaded from GitHub Releases:
 
