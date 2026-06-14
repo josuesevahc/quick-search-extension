@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Search</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <div class="search-container">
+      <input type="text" id="search-input" autofocus>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <div id="provider-list" class="provider-list"></div>
+    <div class="actions">
+      <button id="search-current-tab"></button>
+      <button id="search-new-tab"></button>
+    </div>
+    <div class="footer">
+      <label class="toggle-container">
+        <input type="checkbox" id="temp-override">
+        <span id="temp-override-label"></span>
+      </label>
+      <a href="../options/options.html" id="settings-link" target="_blank"></a>
+    </div>
+  </div>
+  <script type="module" src="popup.ts"></script>
+</body>
+</html>
