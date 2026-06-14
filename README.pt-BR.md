@@ -41,6 +41,14 @@ Para carregar a extensão:
 4. Selecione a pasta `dist` gerada.
 5. Fixe o Quick Search na barra de ferramentas do navegador.
 
+## Baixar e Testar
+
+O caminho público preferencial de distribuição é a Chrome Web Store assim que o Quick Search for aprovado.
+
+Antes de a listagem da Chrome Web Store estar disponível, builds de teste podem ser baixados em [GitHub Releases](https://github.com/josuesevahc/quick-search-extension/releases). Baixe o ZIP, descompacte o arquivo e siga o [guia de instalação para testes](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md). A versão em inglês está disponível em [user testing install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md).
+
+Arquivos ZIP de release são artefatos gerados e não devem ser commitados no repositório.
+
 ## Scripts
 
 ```bash
@@ -91,5 +99,8 @@ docs/             Documentação técnica complementar
 
 ## Documentação
 
-- [Manual](docs/manual.md)
-- [Limitações da plataforma](docs/platform-limitations.md)
+- Idioma: [README em inglês](README.md)
+- Testes: [Guia de instalação para testes](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md) / [guia em inglês](docs/release/USER_TESTING_INSTALL_GUIDE.md)
+- Release: [Checklist de envio para a Chrome Web Store](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.pt-BR.md), [checklist em inglês](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [instruções de teste](docs/release/TEST_INSTRUCTIONS.md) e [rascunho da listagem da loja](docs/release/STORE_LISTING_DRAFT.md)
+- Privacidade e segurança: [Política de privacidade](docs/release/PRIVACY_POLICY.md), [justificativa de permissões](docs/release/PERMISSIONS_JUSTIFICATION.md) e [auditoria de segurança](docs/security/EXTENSION_SECURITY_AUDIT.md)
+- Desenvolvimento: [Manual](docs/manual.md) e [limitações da plataforma](docs/platform-limitations.md)

@@ -1,5 +1,7 @@
 # Test Instructions
 
+Navigation: [README](../../README.md) | [User testing install guide](USER_TESTING_INSTALL_GUIDE.md) | [Chrome Web Store submission checklist](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md)
+
 Run these checks before uploading a ZIP to the Chrome Web Store.
 
 ## Automated Checks

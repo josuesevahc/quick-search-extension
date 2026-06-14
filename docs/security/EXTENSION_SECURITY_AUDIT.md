@@ -1,5 +1,7 @@
 # Extension Security Audit
 
+Navigation: [README](../../README.md) | [Chrome Web Store submission checklist](../release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md) | [Privacy policy](../release/PRIVACY_POLICY.md) | [Permissions justification](../release/PERMISSIONS_JUSTIFICATION.md)
+
 Audit date: 2026-06-14
 
 Scope: source files, Manifest V3 template, generated `dist/` output, dependency lockfile, existing release ZIP path, and Chrome Web Store release posture for Quick Search 1.0.0.

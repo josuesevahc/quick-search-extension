@@ -1,5 +1,9 @@
 # Chrome Web Store Submission Checklist
 
+Language: English | [Português (Brasil)](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.pt-BR.md)
+
+Navigation: [README](../../README.md) | [User testing install guide](USER_TESTING_INSTALL_GUIDE.md) | [Privacy policy](PRIVACY_POLICY.md) | [Security audit](../security/EXTENSION_SECURITY_AUDIT.md)
+
 Use this checklist for the first Quick Search submission.
 
 ## Release Decision
@@ -29,6 +33,22 @@ Private is appropriate only for an internal closed pilot. Public is reasonable a
 - [ ] Confirm the extension does not use remote hosted code.
 - [ ] Confirm no source maps, tests, docs, local config, or `node_modules` are included in the ZIP.
 - [ ] Complete the manual tests in `docs/release/TEST_INSTRUCTIONS.md`.
+
+## GitHub Release Test Build
+
+- [ ] Create a GitHub tag for the release version.
+- [ ] Create a GitHub Release from that tag.
+- [ ] Attach the generated ZIP from `release/` to the GitHub Release.
+- [ ] Verify the README download link points to the GitHub Releases page.
+- [ ] Verify `docs/release/USER_TESTING_INSTALL_GUIDE.md` explains download, unzip, install, update, remove, troubleshooting, and privacy notes.
+- [ ] Verify `docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md` contains equivalent Portuguese guidance.
+- [ ] Confirm the generated ZIP remains ignored or untracked and is not committed to the repository.
+
+## Bilingual Documentation Rule
+
+Any user-facing, release-facing, privacy, store listing, install guide, or README change must update English and Portuguese docs together. If only one language is updated, the task is incomplete.
+
+English remains the primary repository language, and Portuguese documentation must remain equivalent for end users. Portuguese release-doc counterparts use the `*.pt-BR.md` naming convention beside the English source file.
 
 ## Privacy Policy
 

@@ -1,5 +1,7 @@
 # Privacy Policy for Quick Search
 
+Navigation: [README](../../README.md) | [Permissions justification](PERMISSIONS_JUSTIFICATION.md) | [Chrome Web Store submission checklist](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md)
+
 Effective date: 2026-06-14
 
 Quick Search is a browser extension that lets you type a search query, choose a search provider, and open the search in the current tab or a new tab.

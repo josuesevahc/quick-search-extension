@@ -1,5 +1,7 @@
 # Chrome Web Store Listing Draft
 
+Navigation: [README](../../README.md) | [Chrome Web Store submission checklist](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md) | [Privacy policy](PRIVACY_POLICY.md)
+
 ## Name
 
 Quick Search

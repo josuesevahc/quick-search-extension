@@ -41,6 +41,14 @@ To load the extension:
 4. Select the generated `dist` folder.
 5. Pin Quick Search to the browser toolbar.
 
+## Download and Test
+
+The preferred public distribution path is the Chrome Web Store once Quick Search is approved.
+
+Before the Chrome Web Store listing is available, test builds can be downloaded from [GitHub Releases](https://github.com/josuesevahc/quick-search-extension/releases). Download the ZIP, unzip it, and follow the [user testing install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md). A Portuguese version is available in [Guia de instalação para testes](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md).
+
+Release ZIP files are generated artifacts and should not be committed to the repository.
+
 ## Scripts
 
 ```bash
@@ -91,6 +99,8 @@ docs/             Supporting technical documentation
 
 ## Documentation
 
-- [Manual](docs/manual.md)
-- [Platform limitations](docs/platform-limitations.md)
-
+- Language: [Portuguese README](README.pt-BR.md)
+- Testing: [User testing install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md) / [Portuguese guide](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md)
+- Release: [Chrome Web Store submission checklist](docs/release/CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md), [test instructions](docs/release/TEST_INSTRUCTIONS.md), and [store listing draft](docs/release/STORE_LISTING_DRAFT.md)
+- Privacy and security: [Privacy policy](docs/release/PRIVACY_POLICY.md), [permissions justification](docs/release/PERMISSIONS_JUSTIFICATION.md), and [security audit](docs/security/EXTENSION_SECURITY_AUDIT.md)
+- Development: [Manual](docs/manual.md) and [platform limitations](docs/platform-limitations.md)

@@ -1,5 +1,7 @@
 # Permissions Justification
 
+Navigation: [README](../../README.md) | [Privacy policy](PRIVACY_POLICY.md) | [Chrome Web Store submission checklist](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md)
+
 Use this content when completing the Chrome Web Store privacy and permissions fields.
 
 ## Single Purpose
