@@ -17,6 +17,8 @@
     "test:e2e": "playwright test",
     "lint": "eslint .",
     "zip": "npm run build && tsx scripts/zip-dist.ts",
+    "release:check": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/release/prepublish-check.ps1",
+    "release:zip": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/release/build-extension-zip.ps1",
     "format": "prettier --write ."
   },
   "bugs": {

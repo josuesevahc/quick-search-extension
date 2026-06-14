@@ -20,9 +20,11 @@ Chrome does not let an extension dynamically inject multiple providers into the 
 
 The provider list shown in the popup belongs to Quick Search and is stored in `chrome.storage.local`.
 
-## Tabs Permission
+## Tabs API
 
-The `tabs` permission is used to update the current tab, open a new tab, and associate a temporary provider preference with the current tab ID.
+Quick Search uses the Tabs API to update the current tab, open a new tab, and associate a temporary provider preference with the current tab ID.
+
+The extension does not request the `tabs` permission because it does not read sensitive tab properties such as URL, title, favicon, or pending URL.
 
 Quick Search does not read page content, browsing history, cookies, bookmarks, or form data.
 

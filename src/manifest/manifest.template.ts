@@ -6,7 +6,7 @@ export const getManifest = (version: string) => ({
   short_name: APP_META.shortName,
   version: version,
   description: APP_META.description,
-  permissions: ['storage', 'tabs'],
+  permissions: ['storage'],
   host_permissions: [],
   action: {
     default_popup: 'src/popup/popup.html',

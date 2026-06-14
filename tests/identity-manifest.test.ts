@@ -26,7 +26,7 @@ describe('Quick Search identity', () => {
     expect(manifest.name).toBe(APP_META.productName);
     expect(manifest.short_name).toBe(APP_META.shortName);
     expect(manifest.description).toBe(APP_META.description);
-    expect(manifest.permissions).toEqual(['storage', 'tabs']);
+    expect(manifest.permissions).toEqual(['storage']);
     expect(manifest.host_permissions).toEqual([]);
   });
 });

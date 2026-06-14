@@ -1,0 +1,59 @@
+# Privacy Policy for Quick Search
+
+Effective date: 2026-06-14
+
+Quick Search is a browser extension that lets you type a search query, choose a search provider, and open the search in the current tab or a new tab.
+
+## Data Quick Search Stores
+
+Quick Search stores the following settings locally in your browser using `chrome.storage.local`:
+
+- Enabled and disabled search providers
+- Custom provider names and HTTPS search URL templates
+- The extension's internal default provider
+- Temporary provider preferences for individual tabs
+
+These settings are used only to provide the extension's search switching functionality.
+
+## Search Queries
+
+When you type a search query into Quick Search and submit it, the extension creates a URL for the provider you selected and opens that URL in Chrome.
+
+The selected search provider receives your query as part of normal web navigation. For example, if you choose Google, Bing, DuckDuckGo, or another provider, that provider receives the query according to its own privacy policy and terms.
+
+Quick Search's developer does not receive, collect, sell, or share your search queries.
+
+## Data Quick Search Does Not Access
+
+Quick Search does not read or collect:
+
+- Page content
+- Browsing history
+- Cookies
+- Bookmarks
+- Form data
+- Passwords
+- Account identity
+- Location
+- Financial information
+- Health information
+
+## Data Sharing
+
+Quick Search does not send data to any developer-operated server.
+
+Search queries are sent only to the search provider selected by the user when the user submits a search.
+
+## Remote Code, Analytics, and Ads
+
+Quick Search does not use remote hosted code, analytics, telemetry, tracking, advertising, affiliate links, or monetization logic.
+
+## Chrome Web Store Limited Use Statement
+
+Quick Search's use of information complies with the Chrome Web Store User Data Policy, including the Limited Use requirements. Data is used only to provide the extension's single purpose: user-initiated search switching from the extension popup.
+
+## Contact
+
+For support or privacy questions, use the support contact configured in the Chrome Web Store listing or the repository issue tracker:
+
+https://github.com/josuesevahc/quick-search-extension/issues
