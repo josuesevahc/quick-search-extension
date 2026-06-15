@@ -8,6 +8,7 @@ export const DEFAULT_LOCALE: SupportedLocale = 'en';
 export const MESSAGES: Record<SupportedLocale, Messages> = {
   en: {
     appName: 'Quick Search',
+    localBadge: 'Local',
     appDescription: 'Quickly switch search providers from a compact popup.',
     searchPlaceholder: 'Type your search...',
     openSettings: 'Settings',
@@ -62,6 +63,7 @@ export const MESSAGES: Record<SupportedLocale, Messages> = {
   },
   pt_BR: {
     appName: 'Quick Search',
+    localBadge: 'Local',
     appDescription: 'Alterne rapidamente entre buscadores em um popup compacto.',
     searchPlaceholder: 'Digite sua pesquisa...',
     openSettings: 'Configuracoes',

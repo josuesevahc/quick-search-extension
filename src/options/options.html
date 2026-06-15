@@ -7,20 +7,16 @@
 </head>
 <body>
   <div class="container">
+
+    <!-- 1. Header -->
     <header>
       <h1 id="title"></h1>
       <p id="description"></p>
     </header>
 
     <main>
-      <section class="providers-section">
-        <div class="section-header">
-          <h2 id="providers-title"></h2>
-          <button id="add-provider-btn" class="btn-primary"></button>
-        </div>
-        <div id="providers-list" class="providers-list"></div>
-      </section>
 
+      <!-- 2. Preferences section (language, theme, history) — FIRST in DOM -->
       <section class="preferences-section">
         <h2 id="preferences-title"></h2>
         <div class="preferences-panel">
@@ -45,11 +41,23 @@
         </div>
       </section>
 
+      <!-- 3. Actions section (restore defaults) — SECOND in DOM -->
       <section class="actions-section">
         <button id="restore-defaults-btn" class="btn-danger"></button>
       </section>
+
+      <!-- 4. Providers section — THIRD in DOM (below preferences) -->
+      <section class="providers-section">
+        <div class="section-header">
+          <h2 id="providers-title"></h2>
+          <button id="add-provider-btn" class="btn-primary"></button>
+        </div>
+        <div id="providers-list" class="providers-list"></div>
+      </section>
+
     </main>
 
+    <!-- 5. Modal (conditionally visible) -->
     <div id="modal" class="modal hidden">
       <div class="modal-content">
         <h3 id="modal-title"></h3>
@@ -71,6 +79,7 @@
         </form>
       </div>
     </div>
+
   </div>
   <script type="module" src="options.ts"></script>
 </body>

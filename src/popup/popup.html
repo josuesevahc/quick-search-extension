@@ -8,16 +8,32 @@
 </head>
 <body>
   <div id="app">
-    <div class="search-container">
+
+    <!-- Header -->
+    <header class="qs-header">
+      <span class="qs-header-title" id="qs-header-title"></span>
+      <span class="qs-header-badge" id="qs-header-badge"></span>
+    </header>
+
+    <!-- Search field with elevated surface -->
+    <div class="search-wrapper">
       <input type="text" id="search-input" autofocus>
       <div id="suggestions-list" class="suggestions-list hidden" role="listbox"></div>
     </div>
+
+    <!-- Status / error messages -->
     <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <!-- Provider list -->
     <div id="provider-list" class="provider-list"></div>
+
+    <!-- Action buttons -->
     <div class="actions">
       <button id="search-current-tab"></button>
       <button id="search-new-tab"></button>
     </div>
+
+    <!-- Footer: temp override + settings link -->
     <div class="footer">
       <label class="toggle-container">
         <input type="checkbox" id="temp-override">
@@ -25,6 +41,7 @@
       </label>
       <a href="options.html" id="settings-link" target="_blank"></a>
     </div>
+
   </div>
   <script type="module" src="popup.ts"></script>
 </body>

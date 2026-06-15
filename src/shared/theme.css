@@ -1,6 +1,20 @@
+/* ─── Structural tokens (theme-independent) ─────────────────────────────── */
+:root {
+  --qs-radius-sm: 6px;
+  --qs-radius-md: 10px;
+  --qs-radius-lg: 14px;
+  --qs-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22);
+  --qs-shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.38), 0 0 26px rgba(24, 137, 160, 0.14);
+  --qs-space: 8px;
+  --qs-hit-target: 40px;
+  --qs-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ─── Light theme (default) ─────────────────────────────────────────────── */
 :root,
 :root[data-theme='system'][data-resolved-theme='light'],
 :root[data-theme='light'] {
+  /* Legacy tokens — preserved for backward compatibility */
   --primary-color: #2563eb;
   --danger-color: #dc2626;
   --success-color: #059669;
@@ -15,10 +29,27 @@
   --avatar-text-color: #3730a3;
   --overlay-color: rgba(0, 0, 0, 0.5);
   color-scheme: light;
+
+  /* New --qs-* tokens (light) */
+  --qs-bg: #f6f9fb;
+  --qs-surface: #ffffff;
+  --qs-surface-elevated: #f0f7fa;
+  --qs-primary: #126f83;
+  --qs-primary-hover: #0f5f70;
+  --qs-primary-strong: #0f6f85;
+  --qs-border: #d9e4ea;
+  --qs-border-active: #1889a0;
+  --qs-text: #16212a;
+  --qs-text-secondary: #465866;
+  --qs-text-muted: #6b7b88;
+  --qs-danger: #c92f2f;
+  --qs-danger-soft: rgba(201, 47, 47, 0.10);
 }
 
+/* ─── Dark theme (system media query) ──────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Legacy tokens — preserved for backward compatibility */
     --primary-color: #60a5fa;
     --danger-color: #f87171;
     --success-color: #34d399;
@@ -33,11 +64,28 @@
     --avatar-text-color: #bfdbfe;
     --overlay-color: rgba(0, 0, 0, 0.65);
     color-scheme: dark;
+
+    /* New --qs-* tokens (dark) */
+    --qs-bg: #090d12;
+    --qs-surface: #0d1117;
+    --qs-surface-elevated: #121a22;
+    --qs-primary: #1889a0;
+    --qs-primary-hover: #1f9bb5;
+    --qs-primary-strong: #0f6f85;
+    --qs-border: rgba(255, 255, 255, 0.10);
+    --qs-border-active: rgba(24, 137, 160, 0.62);
+    --qs-text: #f8fafc;
+    --qs-text-secondary: #b6c2cc;
+    --qs-text-muted: #8a96a3;
+    --qs-danger: #e53e3e;
+    --qs-danger-soft: rgba(229, 62, 62, 0.12);
   }
 }
 
+/* ─── Dark theme (explicit data-theme attribute) ────────────────────────── */
 :root[data-theme='system'][data-resolved-theme='dark'],
 :root[data-theme='dark'] {
+  /* Legacy tokens — preserved for backward compatibility */
   --primary-color: #60a5fa;
   --danger-color: #f87171;
   --success-color: #34d399;
@@ -52,4 +100,29 @@
   --avatar-text-color: #bfdbfe;
   --overlay-color: rgba(0, 0, 0, 0.65);
   color-scheme: dark;
+
+  /* New --qs-* tokens (dark) */
+  --qs-bg: #090d12;
+  --qs-surface: #0d1117;
+  --qs-surface-elevated: #121a22;
+  --qs-primary: #1889a0;
+  --qs-primary-hover: #1f9bb5;
+  --qs-primary-strong: #0f6f85;
+  --qs-border: rgba(255, 255, 255, 0.10);
+  --qs-border-active: rgba(24, 137, 160, 0.62);
+  --qs-text: #f8fafc;
+  --qs-text-secondary: #b6c2cc;
+  --qs-text-muted: #8a96a3;
+  --qs-danger: #e53e3e;
+  --qs-danger-soft: rgba(229, 62, 62, 0.12);
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

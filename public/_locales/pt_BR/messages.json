@@ -26,5 +26,9 @@
   "themeDark": {
     "message": "Escuro",
     "description": "Opcao de tema escuro"
+  },
+  "localBadge": {
+    "message": "Local",
+    "description": "Badge exibida no cabecalho do popup indicando comportamento local-first"
   }
 }
