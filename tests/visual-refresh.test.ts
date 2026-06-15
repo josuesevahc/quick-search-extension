@@ -10,6 +10,7 @@
 
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
+import { join } from 'path';
 import { describe, expect, it } from 'vitest';
 import { MESSAGES } from '../src/shared/i18n';
 import { getSuggestionKeyboardAction } from '../src/domain/suggestion-acceptance';
@@ -20,6 +21,10 @@ import { getManifest } from '../src/manifest/manifest.template';
 function readSrc(relativePath: string): string {
   return readFileSync(resolve(__dirname, '..', relativePath), 'utf-8');
 }
+
+const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf-8')) as {
+  version: string;
+};
 
 // ─── 8.1 / 8.2: Token completeness ─────────────────────────────────────────
 
@@ -279,17 +284,17 @@ describe('Keyboard navigation (existing coverage delegation)', () => {
 
 describe('Manifest permissions unchanged', () => {
   it('permissions array contains only "storage"', () => {
-    const manifest = getManifest('1.0.0');
+    const manifest = getManifest(packageJson.version);
     expect(manifest.permissions).toEqual(['storage']);
   });
 
   it('host_permissions is empty', () => {
-    const manifest = getManifest('1.0.0');
+    const manifest = getManifest(packageJson.version);
     expect(manifest.host_permissions).toEqual([]);
   });
 
   it('manifest_version is 3', () => {
-    const manifest = getManifest('1.0.0');
+    const manifest = getManifest(packageJson.version);
     expect(manifest.manifest_version).toBe(3);
   });
 });
