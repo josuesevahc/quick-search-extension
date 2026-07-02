@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "Quick Search Extension",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.title": "Quick Search Extension — ${dirty}${activeEditorShort}${separator}${rootName}",
+
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": false,
+      "**/coverage": true
+    },
+
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/coverage": true,
+      "**/pnpm-lock.yaml": true
+    },
+
+    "editor.defaultFormatter": null,
+
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    "cSpell.words": [
+      "Ominara",
+      "Sevahc",
+      "webstore",
+      "quicksearch",
+      "taboverride",
+      "monogram",
+      "Vitest",
+      "pnpm"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "EditorConfig.EditorConfig",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "streetsidesoftware.code-spell-checker",
+      "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+      "christian-kohler.path-intellisense",
+      "usernamehw.errorlens",
+      "eamodio.gitlens",
+      "mhutchie.git-graph",
+      "vitest.explorer",
+      "github.vscode-github-actions"
+    ]
+  }
+}
