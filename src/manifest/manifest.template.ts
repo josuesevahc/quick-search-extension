@@ -16,6 +16,14 @@ export const getManifest = (version: string) => ({
       '128': 'icons/icon-128.png'
     }
   },
+  commands: {
+    _execute_action: {
+      suggested_key: {
+        default: 'Ctrl+Shift+Y',
+        mac: 'Command+Shift+Y'
+      }
+    }
+  },
   options_page: 'options.html',
   background: {
     service_worker: 'background.js',

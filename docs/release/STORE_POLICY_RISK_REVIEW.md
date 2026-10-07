@@ -4,7 +4,7 @@ Navigation: [README](../../README.md) | [Security audit](../security/EXTENSION_S
 
 Review date: 2026-06-14
 
-Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance behavior reviewed below are committed to `main` for a future update, likely v1.1.0, and the submitted v1.0.0 package remains untouched.
+Release target: v1.2.0. The current Chrome Web Store listing remains unchanged until the v1.2.0 package is uploaded and approved.
 
 ## Icon Audit
 
@@ -50,6 +50,10 @@ Search history is not saved when the extension detects an incognito extension co
 ## Theme Preference Risk
 
 Theme preference is stored locally in `chrome.storage.local` as browser default, light, or dark. Browser default follows `prefers-color-scheme`. This does not require additional permissions, host permissions, remote requests, analytics, or telemetry.
+
+## Keyboard Shortcut Risk
+
+The Manifest V3 `_execute_action` command opens the existing extension popup. It does not need an additional permission, access page content, or run code on websites. Chrome users can change or remove the suggested shortcut at `chrome://extensions/shortcuts`.
 
 ## Search Settings Risk
 

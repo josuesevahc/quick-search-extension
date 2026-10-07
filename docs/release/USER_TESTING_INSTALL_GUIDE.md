@@ -11,7 +11,7 @@ The recommended public distribution path for Quick Search is the Chrome Web Stor
 ## Download the Test Build
 
 - [Latest release](https://github.com/josuesevahc/quick-search-extension/releases/latest)
-- [v1.0.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [v1.2.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.2.0)
 - [All releases](https://github.com/josuesevahc/quick-search-extension/releases)
 
 Download the `.zip` asset attached to the release, unzip it on your computer, and load the unzipped extension folder in Chrome.
@@ -28,6 +28,7 @@ Important: Chrome cannot load the ZIP directly. You must unzip it first, then se
 6. Pin Quick Search to the Chrome toolbar.
 7. Open the Quick Search popup.
 8. Type a search term, choose a provider, and test opening searches.
+9. Press `Ctrl+Shift+Y` (or `Command+Shift+Y` on macOS) to open the popup. The shortcut can be changed at `chrome://extensions/shortcuts`.
 
 ## Update to a Newer Test Build
 

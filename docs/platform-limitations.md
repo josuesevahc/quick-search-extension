@@ -28,6 +28,12 @@ The extension does not request the `tabs` permission because it does not read se
 
 Quick Search does not read page content, browsing history, cookies, bookmarks, or form data.
 
+## Keyboard Shortcut
+
+Quick Search declares `Ctrl+Shift+Y` as the suggested shortcut on Windows, Linux, and ChromeOS, and `Command+Shift+Y` on macOS. It opens the extension popup through the Manifest V3 `_execute_action` command.
+
+Chrome may leave the shortcut unassigned when it conflicts with another extension or browser shortcut. Users can view, change, or remove it at `chrome://extensions/shortcuts`.
+
 ## Service Worker Lifetime
 
 Manifest V3 service workers are event-driven and can be stopped by the browser when idle.

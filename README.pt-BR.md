@@ -10,12 +10,13 @@ Repositório: <https://github.com/josuesevahc/quick-search-extension>
 
 ## Status de Release
 
-O pacote v1.0.0 da Chrome Web Store foi enviado e ainda está em análise. A branch `main` atual inclui mudanças ainda não lançadas, preparadas para uma atualização futura, provavelmente v1.1.0.
+A listagem da Chrome Web Store está como não listada. A versão 1.2.0 está preparada como a próxima atualização da loja.
 
-## Não Lançado
+## Versão 1.2.0
 
 - Adicionada preferência de tema claro, escuro e sistema. O padrão segue o tema do navegador ou sistema, e sobrescritas manuais são armazenadas localmente.
 - Alterada a aceitação de sugestões locais do histórico para que sugestões preencham o campo sem executar a busca imediatamente. A execução da busca exige envio explícito.
+- Adicionado atalho sugerido: `Ctrl+Shift+Y` no Windows, Linux e ChromeOS e `Command+Shift+Y` no macOS. Usuários podem alterá-lo em `chrome://extensions/shortcuts`.
 - Nenhuma permissão adicional, host permission, telemetria, rastreamento, código remoto ou autocomplete remoto foi adicionado.
 
 ## Funcionalidades
@@ -26,6 +27,7 @@ O pacote v1.0.0 da Chrome Web Store foi enviado e ainda está em análise. A bra
 - Seleção de buscador padrão interno.
 - Preferência temporária de buscador por aba.
 - Preferência de tema claro, escuro ou padrão do navegador.
+- Atalho de teclado para abrir o popup.
 - Ativação e desativação de provedores built-in.
 - Adição, edição e remoção de provedores customizados.
 - Validação de URLs `https://` com `{searchTerms}`.
@@ -54,12 +56,12 @@ Para carregar a extensão:
 
 ## Baixar e Testar
 
-O caminho público preferencial de distribuição é a Chrome Web Store assim que o Quick Search for aprovado. O pacote v1.0.0 enviado à Chrome Web Store permanece inalterado enquanto as mudanças ainda não lançadas acima ficam preparadas na `main` para uma atualização futura.
+O caminho público preferencial de distribuição é a Chrome Web Store. A listagem atual não é listada e ficará pública depois que a próxima atualização for aprovada e testada a partir da loja.
 
 Antes de a listagem da Chrome Web Store estar disponível, builds de teste podem ser baixadas pelo GitHub Releases:
 
 - [Release mais recente](https://github.com/josuesevahc/quick-search-extension/releases/latest)
-- [Release v1.0.0](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [Release v1.2.0](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.2.0)
 - [Guia de instalação/teste em português](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md)
 - [Guia de instalação/teste em inglês](docs/release/USER_TESTING_INSTALL_GUIDE.md)
 
@@ -92,6 +94,7 @@ npm run zip
 3. Selecione um provedor.
 4. Clique em "Buscar na aba atual" ou "Buscar em nova aba" para enviar, ou pressione Enter quando nenhuma sugestão local estiver destacada.
 5. Use a página de opções para gerenciar provedores, escolher tema claro/escuro/padrão do navegador e restaurar padrões.
+6. Pressione `Ctrl+Shift+Y` (ou `Command+Shift+Y` no macOS) para abrir o popup; altere o atalho em `chrome://extensions/shortcuts` se necessário.
 
 Se as sugestões locais do histórico estiverem ativadas, selecionar uma sugestão apenas preenche o campo. A busca só é executada após uma ação explícita de envio.
 

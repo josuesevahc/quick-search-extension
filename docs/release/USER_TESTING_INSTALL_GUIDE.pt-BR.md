@@ -11,7 +11,7 @@ O caminho público recomendado para distribuir o Quick Search é a Chrome Web St
 ## Baixar a Build de Teste
 
 - [Release mais recente](https://github.com/josuesevahc/quick-search-extension/releases/latest)
-- [Release v1.0.0](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [Release v1.2.0](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.2.0)
 - [Todas as releases](https://github.com/josuesevahc/quick-search-extension/releases)
 
 Baixe o asset `.zip` anexado à release, descompacte o arquivo no seu computador e carregue a pasta descompactada da extensão no Chrome.
@@ -28,6 +28,7 @@ Importante: o Chrome não carrega o ZIP diretamente. Você precisa descompactar 
 6. Fixe o Quick Search na barra de ferramentas do Chrome.
 7. Abra o popup do Quick Search.
 8. Digite um termo de busca, escolha um provedor e teste a abertura das buscas.
+9. Pressione `Ctrl+Shift+Y` (ou `Command+Shift+Y` no macOS) para abrir o popup. O atalho pode ser alterado em `chrome://extensions/shortcuts`.
 
 ## Atualizar para uma Build de Teste Mais Nova
 

@@ -10,12 +10,13 @@ Repository: <https://github.com/josuesevahc/quick-search-extension>
 
 ## Release Status
 
-Chrome Web Store v1.0.0 has been submitted and is still under review. The current `main` branch includes unreleased changes prepared for a future update, likely v1.1.0.
+The Chrome Web Store listing is unlisted. Version 1.2.0 is prepared as the next store update.
 
-## Unreleased
+## Version 1.2.0
 
 - Added light, dark, and system theme preference. The default follows the browser or system color scheme, and manual overrides are stored locally.
 - Changed local search history suggestion acceptance so suggestions fill the input without immediately executing a search. Search execution requires explicit submission.
+- Added a suggested keyboard shortcut: `Ctrl+Shift+Y` on Windows, Linux, and ChromeOS, and `Command+Shift+Y` on macOS. Users can change it at `chrome://extensions/shortcuts`.
 - No additional permissions, host permissions, telemetry, tracking, remote code, or remote autocomplete were added.
 
 ## Features
@@ -26,6 +27,7 @@ Chrome Web Store v1.0.0 has been submitted and is still under review. The curren
 - Internal default provider selection.
 - Temporary provider preference per tab.
 - Light, dark, and browser default theme preference.
+- Keyboard shortcut to open the popup.
 - Built-in provider enable/disable controls.
 - Custom provider add, edit, and remove flow.
 - `https://` URL validation with `{searchTerms}`.
@@ -54,12 +56,12 @@ To load the extension:
 
 ## Download and Test
 
-The preferred public distribution path is the Chrome Web Store once Quick Search is approved. The submitted Chrome Web Store v1.0.0 package remains unchanged while the unreleased changes above are prepared in `main` for a future update.
+The preferred public distribution path is the Chrome Web Store. The current listing is unlisted and will be made public after the next update has been approved and checked from the store.
 
 Before the Chrome Web Store listing is available, test builds can be downloaded from GitHub Releases:
 
 - [Latest release](https://github.com/josuesevahc/quick-search-extension/releases/latest)
-- [v1.0.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0)
+- [v1.2.0 release](https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.2.0)
 - [English manual install guide](docs/release/USER_TESTING_INSTALL_GUIDE.md)
 - [Portuguese manual install guide](docs/release/USER_TESTING_INSTALL_GUIDE.pt-BR.md)
 
@@ -92,6 +94,7 @@ npm run zip
 3. Select a provider.
 4. Click "Search current tab" or "Search new tab" to submit, or press Enter when no local suggestion is highlighted.
 5. Use the options page to manage providers, choose a light/dark/browser-default theme, and restore defaults.
+6. Press `Ctrl+Shift+Y` (or `Command+Shift+Y` on macOS) to open the popup; change the shortcut at `chrome://extensions/shortcuts` if needed.
 
 If local search history suggestions are enabled, selecting a suggestion fills the input only. Search is executed only after an explicit submit action.
 

@@ -4,17 +4,15 @@ Idioma: [English](CHROME_WEB_STORE_SUBMISSION_CHECKLIST.md) | Português (Brasil
 
 Navegação: [README em português](../../README.pt-BR.md) | [Guia de instalação para testes](USER_TESTING_INSTALL_GUIDE.pt-BR.md) | [Política de privacidade](PRIVACY_POLICY.md) | [Auditoria de segurança](../security/EXTENSION_SECURITY_AUDIT.md) | [Revisão de risco da loja](STORE_POLICY_RISK_REVIEW.md)
 
-Use este checklist para o primeiro envio do Quick Search.
+Use este checklist para a atualização v1.2.0 do Quick Search.
 
 ## Decisão de Release
 
-Visibilidade recomendada para a primeira release: Não listado.
+Visibilidade alvo: Público depois que a atualização v1.2.0 for aprovada e verificada pela Chrome Web Store.
 
 Motivo:
 
-Não listado permite um fluxo real de revisão e instalação pela Chrome Web Store sem descoberta pública ampla. Mude para Público depois que o pacote, a listagem, a URL da política de privacidade, as capturas de tela e o resultado da revisão forem verificados.
-
-Privado é apropriado somente para um piloto interno fechado. Público é razoável depois que a primeira release não listada aceita for testada.
+A listagem atual não é listada. Mantenha-a assim durante a revisão da atualização e mude para Público depois que a instalação aprovada pela loja passar nos testes manuais.
 
 ## Verificações Antes do Envio
 
@@ -33,6 +31,8 @@ Privado é apropriado somente para um piloto interno fechado. Público é razoá
 - [ ] Confirme que a extensão não usa código remoto hospedado.
 - [ ] Confirme que o texto digitado não é enviado a provedores externos de autocomplete.
 - [ ] Confirme que sugestões locais do histórico de busca podem ser desativadas e limpas.
+- [ ] Confirme que `Ctrl+Shift+Y` abre o popup no Windows, Linux e ChromeOS, e que `Command+Shift+Y` abre no macOS.
+- [ ] Confirme que o atalho pode ser alterado em `chrome://extensions/shortcuts`.
 - [ ] Confirme que source maps, testes, docs, configuração local ou `node_modules` não estão incluídos no ZIP.
 - [ ] Complete os testes manuais em `docs/release/TEST_INSTRUCTIONS.md`.
 
@@ -40,7 +40,7 @@ Privado é apropriado somente para um piloto interno fechado. Público é razoá
 
 - Índice de releases: <https://github.com/josuesevahc/quick-search-extension/releases>
 - Release mais recente: <https://github.com/josuesevahc/quick-search-extension/releases/latest>
-- Release v1.0.0: <https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.0.0>
+- Release v1.2.0: <https://github.com/josuesevahc/quick-search-extension/releases/tag/v1.2.0>
 
 - [ ] Crie uma tag GitHub para a versão da release.
 - [ ] Crie um GitHub Release a partir dessa tag.
@@ -88,16 +88,16 @@ Inglês continua sendo o idioma principal do repositório, e a documentação em
 
 1. Abra o Chrome Developer Dashboard.
 2. Crie um novo item.
-3. Envie `release/quick-search-extension-1.0.0.zip`.
+3. Envie `release/quick-search-extension-1.2.0.zip`.
 4. Complete os campos da listagem usando `docs/release/STORE_LISTING_DRAFT.md`.
 5. Envie capturas de tela e assets de ícone.
-6. Defina a categoria como Produtividade.
+6. Defina a categoria como Ferramentas.
 7. Complete as práticas de privacidade usando `docs/release/PERMISSIONS_JUSTIFICATION.md`.
 8. Adicione a URL hospedada da política de privacidade.
-9. Defina a visibilidade como Não listado para a primeira release revisada.
+9. Mantenha a listagem como Não listado durante a revisão da atualização.
 10. Envie para revisão.
 11. Depois da aprovação, instale pela listagem da Web Store e repita os testes manuais.
-12. Mude a visibilidade para Público somente depois que as verificações de instalação e divulgação passarem.
+12. Mude a visibilidade para Público depois que as verificações de instalação e divulgação passarem.
 
 ## Google Cloud Project
 
@@ -113,7 +113,7 @@ Use envio manual pelo Developer Dashboard para a v1. Considere a Publish API som
 
 ## Status do Envio
 
-Pronto para o primeiro envio depois que:
+Pronto para enviar a v1.2.0 depois que:
 
 - as verificações automatizadas de release passarem,
 - o ZIP for gerado por `npm run release:zip`,

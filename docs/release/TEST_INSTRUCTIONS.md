@@ -4,7 +4,7 @@ Navigation: [README](../../README.md) | [User testing install guide](USER_TESTIN
 
 Run these checks before uploading a ZIP to the Chrome Web Store.
 
-Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance checks below validate the `main` branch prepared for a future update; they do not mean a new Chrome Web Store package has been uploaded.
+Release target: v1.2.0. The currently published store package remains unchanged until this ZIP is uploaded and approved.
 
 ## Automated Checks
 
@@ -33,7 +33,7 @@ npm run release:zip
 Expected output:
 
 ```text
-release/quick-search-extension-1.0.0.zip
+release/quick-search-extension-1.2.0.zip
 ```
 
 ## Manual Load Test
@@ -44,6 +44,14 @@ release/quick-search-extension-1.0.0.zip
 4. Click "Load unpacked".
 5. Select the repository's `dist/` folder.
 6. Pin Quick Search to the toolbar.
+
+## Keyboard Shortcut
+
+1. With Chrome focused, press `Ctrl+Shift+Y` on Windows, Linux, or ChromeOS, or `Command+Shift+Y` on macOS.
+2. Confirm that the Quick Search popup opens.
+3. Open `chrome://extensions/shortcuts`.
+4. Confirm that Quick Search appears and the shortcut can be changed or removed.
+5. If Chrome did not assign the suggested shortcut because of a conflict, assign a free shortcut there and confirm it opens the popup.
 
 ## Popup Search Flow
 
@@ -155,6 +163,7 @@ Before upload, verify:
 - `dist/manifest.json` requests only `storage`.
 - `dist/manifest.json` includes `default_locale: en` and localized manifest messages.
 - `dist/manifest.json` has empty `host_permissions`.
+- `dist/manifest.json` declares `_execute_action` with the Quick Search keyboard shortcut.
 - There is no `chrome_settings_overrides`.
 - There is no `chrome_url_overrides`.
 - There is no `omnibox` key.

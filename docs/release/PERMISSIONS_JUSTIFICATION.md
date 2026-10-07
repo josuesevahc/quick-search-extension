@@ -4,7 +4,7 @@ Navigation: [README](../../README.md) | [Privacy policy](PRIVACY_POLICY.md) | [C
 
 Use this content when completing the Chrome Web Store privacy and permissions fields.
 
-Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance behavior described here are committed to `main` for a future update; they do not require a new permission and have not been uploaded as a new Chrome Web Store package yet.
+Release target: v1.2.0. The theme preference, safe local suggestion acceptance, and keyboard shortcut described here do not require an additional permission.
 
 ## Single Purpose
 
@@ -57,4 +57,4 @@ Quick Search does not change Chrome's default search provider, does not override
 
 Quick Search does not request the `history` permission and does not intercept or read Chrome browsing history.
 
-No additional permissions are required for theme preference or local suggestion acceptance behavior.
+No additional permissions are required for theme preference, local suggestion acceptance, or the `_execute_action` keyboard shortcut.

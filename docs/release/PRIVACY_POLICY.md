@@ -4,7 +4,7 @@ Navigation: [README](../../README.md) | [Permissions justification](PERMISSIONS_
 
 Effective date: 2026-06-14
 
-Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. The theme preference and safe local suggestion acceptance behavior described here are prepared in `main` for a future update and are not a new Chrome Web Store upload yet.
+Release target: v1.2.0. The keyboard shortcut added in this update opens the extension popup and does not collect, store, or transmit data.
 
 Quick Search is a browser extension that lets you type a search query, choose a search provider, and open the search in the current tab or a new tab.
 

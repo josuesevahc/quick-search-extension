@@ -6,7 +6,7 @@ Audit date: 2026-06-14
 
 Scope: source files, Manifest V3 template, generated `dist/` output, dependency lockfile, existing release ZIP path, and Chrome Web Store release posture for Quick Search.
 
-Status note: Chrome Web Store v1.0.0 has already been submitted and is still under review. Theme preference and safe local suggestion acceptance are committed to `main` for a future update, likely v1.1.0; the submitted v1.0.0 package remains untouched.
+Release target: v1.2.0. The current Chrome Web Store listing remains unchanged until the v1.2.0 package is uploaded and approved.
 
 References reviewed:
 
@@ -40,6 +40,7 @@ Manifest characteristics:
 - Settings overrides: none
 - Chrome URL overrides: none
 - Omnibox keyword: none
+- Keyboard shortcut: `_execute_action`, which opens the existing popup
 - Remote code permissions: none
 
 The manifest does not include a custom `content_security_policy`. Chrome's default Manifest V3 extension CSP applies. The project does not require looser CSP settings.

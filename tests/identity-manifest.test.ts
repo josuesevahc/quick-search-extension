@@ -33,6 +33,14 @@ describe('Quick Search identity', () => {
     expect(manifest).not.toHaveProperty('chrome_url_overrides');
     expect(manifest).not.toHaveProperty('search_provider');
     expect(manifest.action.default_popup).toBe('popup.html');
+    expect(manifest.commands).toEqual({
+      _execute_action: {
+        suggested_key: {
+          default: 'Ctrl+Shift+Y',
+          mac: 'Command+Shift+Y',
+        },
+      },
+    });
     expect(manifest.options_page).toBe('options.html');
   });
 });
