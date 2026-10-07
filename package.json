@@ -26,17 +26,17 @@
   },
   "homepage": "https://github.com/josuesevahc/quick-search-extension#readme",
   "devDependencies": {
-    "@playwright/test": "^1.44.0",
+    "@playwright/test": "^1.61.1",
     "@types/chrome": "^0.0.268",
-    "@types/node": "^20.14.2",
-    "@typescript-eslint/eslint-plugin": "^7.12.0",
-    "@typescript-eslint/parser": "^7.12.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.1",
-    "sharp": "^0.33.5",
-    "tsx": "^4.15.1",
-    "typescript": "^5.4.5",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.8"
+    "@types/node": "^20.19.43",
+    "@typescript-eslint/eslint-plugin": "8.71.1",
+    "@typescript-eslint/parser": "8.71.1",
+    "eslint": "^8.57.1",
+    "prettier": "^3.9.4",
+    "sharp": "0.35.5",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.2",
+    "vitest": "4.1.11"
   }
 }
