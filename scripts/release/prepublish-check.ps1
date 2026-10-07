@@ -1,6 +1,9 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+# Never allow a parent shell to disable TLS certificate validation for npm steps.
+Remove-Item -LiteralPath "Env:NODE_TLS_REJECT_UNAUTHORIZED" -ErrorAction SilentlyContinue
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..")
 $distRoot = Join-Path $repoRoot "dist"
 $manifestPath = Join-Path $distRoot "manifest.json"

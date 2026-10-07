@@ -86,6 +86,10 @@ Findings:
 - Built-in provider URLs are navigation targets, not executable code.
 - Typed text is not sent to external autocomplete providers while the user types.
 
+## Package Transport Security
+
+The release preflight removes `NODE_TLS_REJECT_UNAUTHORIZED` from its environment before running npm. This prevents an inherited terminal setting from disabling TLS certificate validation during dependency audit, testing, build, and package checks.
+
 ## CSP Review
 
 Status: Pass.

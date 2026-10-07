@@ -15,6 +15,16 @@ npm install
 npm run release:check
 ```
 
+If a terminal has `NODE_TLS_REJECT_UNAUTHORIZED=0`, remove it before running npm. This variable disables TLS certificate validation. The release check removes it from its npm subprocesses, but the terminal configuration should also be corrected:
+
+```bash
+unset NODE_TLS_REJECT_UNAUTHORIZED
+```
+
+```powershell
+Remove-Item Env:NODE_TLS_REJECT_UNAUTHORIZED -ErrorAction SilentlyContinue
+```
+
 The release check runs:
 
 - `npm audit`
@@ -23,6 +33,7 @@ The release check runs:
 - `npm run build`
 - manifest validation
 - package-output checks for forbidden files and risky content patterns
+- removal of `NODE_TLS_REJECT_UNAUTHORIZED` from npm subprocesses
 
 ## Build the Release ZIP
 
